@@ -1,0 +1,58 @@
+/* ---------------------------------------------------------------- opening titles */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+  color: var(--gold);
+}
+.intro__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: auto;
+  background: radial-gradient(ellipse 60% 55% at 50% 48%, var(--choc), var(--cocoa) 52%, var(--espresso));
+}
+.intro__lockup {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(62vw, 330px);
+  aspect-ratio: 487 / 421;
+  transform: translate(-50%, -54%);
+}
+.intro__lockup svg {
+  position: absolute;
+  overflow: visible;
+}
+/* positions mirror the regions of the full lock-up (viewBox 44 31 487 421) */
+.intro__emblem {
+  left: 26.28%;
+  top: 0.475%;
+  width: 46.61%;
+  height: 53.92%;
+}
+.intro__divider {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.intro__word {
+  left: 0;
+  top: 54.87%;
+  width: 100%;
+  height: 45.13%;
+}
+.intro__skip {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 28px;
+  color: var(--sand);
+  opacity: 0.7;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+}
+/* the real navbar logo waits until the flying one lands */
+html.is-intro-brand .nav .brand {
+  opacity: 0;
+  transition: none;
+}
