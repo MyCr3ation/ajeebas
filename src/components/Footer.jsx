@@ -36,7 +36,7 @@ export default function Footer() {
           </address>
         </div>
         <p className="ftr__legal label">
-          © 2026 Ajeebas Chocolate Factory LLC <span aria-hidden="true">·</span> Made in Dubai
+          © 2026 Ajeebas Chocolate Factory LLC <span aria-hidden="true">·</span> Made in UAE
         </p>
       </div>
     </footer>

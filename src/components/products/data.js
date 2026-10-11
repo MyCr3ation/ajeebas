@@ -35,9 +35,9 @@ export const CRUNCH = {
   claims: [
     ['leaf', 'Real nut flavour'],
     ['pod', 'Pouch & single'],
-    ['heart', 'Made in Dubai'],
+    ['heart', 'Made in UAE'],
   ],
-  foot: 'Made in Dubai',
+  foot: 'Made in UAE',
   variants: [
     { key: 'cpist', tab: 'Pistachio', name: 'Pistachio Chocolate', img: '/images/cut/crunch-stick-pistachio-pouch.webp', w: 684, h: 1041, alt: 'Ajeebas Crunch Stick pouch, Pistachio Chocolate', extra: { img: '/images/cut/crunch-stick-pistachio-wrapper.webp', w: 729, h: 540, alt: 'Ajeebas Crunch Stick single wrapper, Pistachio Chocolate' }, tone: 'light', swatch: 'var(--dpist)', ings: ['pistachio', 'pistachio-shell', 'pistachio', 'chunk', 'pistachio-shell', 'pistachio'] },
     { key: 'calmond', tab: 'Almond', name: 'Almond Chocolate', img: '/images/cut/crunch-stick-almond-pouch.webp', w: 686, h: 1043, alt: 'Ajeebas Crunch Stick pouch, Almond Chocolate', extra: { img: '/images/cut/crunch-stick-almond-wrapper.webp', w: 965, h: 610, alt: 'Ajeebas Crunch Stick single wrapper, Almond Chocolate' }, tone: 'dark', swatch: 'var(--caramel)', ings: ['almond', 'chunk', 'almond', 'almond', 'chunk', 'almond'] },
@@ -59,7 +59,7 @@ export const TRUFFLE = {
     ['heart', 'Desiccated Coconut'],
   ],
   claimsLabel: 'Ingredients',
-  foot: 'Made in Dubai',
+  foot: 'Made in UAE',
   variants: [
     { key: 'coconut', tab: 'Coconut Truffles', name: 'Coconut Truffles', img: '/images/cut/coconut-truffle-filled-bar-wrapper.webp', w: 1100, h: 592, wide: true, alt: 'Ajeebas Coconut Truffles wrapper', tone: 'light', swatch: 'var(--white)', ings: ['coconut', 'coconut', 'chunk', 'date', 'coconut', 'chunk'] },
   ],
@@ -94,7 +94,7 @@ export const KUNAFA = {
     ['pod', 'Premium Quality Chocolate'],
     ['leaf', 'Dubai Style'],
   ],
-  foot: 'Made in Dubai',
+  foot: 'Made in UAE',
   variants: [
     { key: 'kunafa', tab: 'Kunafa Bar', name: 'Kunafa Bar', img: '/images/cut/kunafa-bar-box.webp', w: 608, h: 1323, alt: 'Ajeebas Kunafa Bar box, Dubai Chocolate: a green pistachio-patterned carton', tone: 'light', swatch: 'var(--dpist)', ings: ['pistachio', 'chunk', 'pistachio-shell', 'pistachio', 'chunk', 'pistachio-shell'] },
   ],

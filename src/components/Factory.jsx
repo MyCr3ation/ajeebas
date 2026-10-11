@@ -37,7 +37,7 @@ export default function Factory() {
           <h2 className="factory__title display" id="factory-title">
             Made in the UAE
           </h2>
-          <p className="factory__text">Every Ajeebas product is made in Dubai, at our factory in Al Qusais Industrial Area 4. Making it here means we stay close to our ingredients, our quality and our customers.</p>
+          <p className="factory__text">Every Ajeebas product is made in the UAE, at our factory in Al Qusais Industrial Area 4. Making it here means we stay close to our ingredients, our quality and our customers.</p>
           <address className="factory__addr">
             <span className="label">Address</span>
             <span>Ajeebas Chocolate Factory LLC</span>
@@ -75,8 +75,8 @@ export default function Factory() {
             <defs>
               <path id="badge-path" d="M100 100m-78 0a78 78 0 1 1 156 0a78 78 0 1 1-156 0" />
             </defs>
-            <text fontSize="15.5" letterSpacing="3.6" fontWeight="700" fontFamily="Archivo Variable, sans-serif" fill="currentColor">
-              <textPath href="#badge-path">MADE IN DUBAI ✦ AL QUSAIS INDUSTRIAL AREA 4 ✦</textPath>
+            <text fontSize="15.5" letterSpacing="2.4" fontWeight="700" fontFamily="Archivo Variable, sans-serif" fill="currentColor">
+              <textPath href="#badge-path" textLength="486" lengthAdjust="spacing">MADE IN UAE ✦ AL QUSAIS INDUSTRIAL AREA 4 ✦</textPath>
             </text>
           </svg>
           <svg className="badge__emblem" viewBox={VB.emblem.join(' ')} fill="currentColor" dangerouslySetInnerHTML={{ __html: parts.emblem }} />

@@ -57,7 +57,7 @@ export default function WhatWeMake() {
           <h2 className="range__title fr" id="range-title">
             What we make
           </h2>
-          <p className="range__intro">Five lines, one table. Every pack is made in Dubai.</p>
+          <p className="range__intro">Five lines, one table. Every pack is made in the UAE.</p>
         </div>
         <ol className="menu-card" aria-label="Product lines">
           {LINES.map((l, i) => (

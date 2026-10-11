@@ -8,7 +8,7 @@ const STAR = (
 )
 const TAPES = [
   { tone: 'cocoa', dir: -1, items: ['Almond Dark', 'Almond Milk', 'Pistachio', 'Assorted', 'Crunch Stick', 'Kunafa Bar', 'Coconut Truffle'] },
-  { tone: 'pist', dir: 1, items: ['Dubai Style', 'Rich & Indulgent', 'Premium Quality Chocolate', 'Made in Dubai', 'Little bite of happiness', 'No Artificial Flavours'] },
+  { tone: 'pist', dir: 1, items: ['Dubai Style', 'Rich & Indulgent', 'Premium Quality Chocolate', 'Made in UAE', 'Little bite of happiness', 'No Artificial Flavours'] },
 ]
 
 function Set({ items, italicFirst }) {
