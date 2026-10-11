@@ -75,13 +75,29 @@ export const FILLED = {
   script: 'Coming soon',
   style: 'Filled bar',
   claims: [],
-  claimsLabel: 'Private label welcome',
   foot: 'More flavours coming soon',
   variants: [
     { key: 'soon', tab: 'Coming soon', name: 'More flavours', soon: true, tone: 'light', swatch: 'var(--pist)', ings: ['pistachio', 'almond', 'date', 'pistachio-shell', 'chunk', 'coconut'] },
   ],
 }
 
-export const KUNAFA = { id: 'line-kunafa', short: 'Kunafa bar' }
+export const KUNAFA = {
+  id: 'line-kunafa',
+  short: 'Kunafa bar',
+  label: 'Kunafa bar',
+  titleItalic: 'The',
+  titleCaps: 'Kunafa edit',
+  letters: 'KUNAFA',
+  script: 'Break it. Share it.',
+  style: 'Dubai Chocolate',
+  claims: [
+    ['pod', 'Premium Quality Chocolate'],
+    ['leaf', 'Dubai Style'],
+  ],
+  foot: 'Made in Dubai',
+  variants: [
+    { key: 'kunafa', tab: 'Kunafa Bar', name: 'Kunafa Bar', img: '/images/cut/kunafa-bar-box.webp', w: 608, h: 1323, alt: 'Ajeebas Kunafa Bar box, Dubai Chocolate: a green pistachio-patterned carton', tone: 'light', swatch: 'var(--dpist)', ings: ['pistachio', 'chunk', 'pistachio-shell', 'pistachio', 'chunk', 'pistachio-shell'] },
+  ],
+}
 
 export const PANELS = [DATES, CRUNCH, KUNAFA, TRUFFLE, FILLED]

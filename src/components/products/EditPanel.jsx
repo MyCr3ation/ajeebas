@@ -166,7 +166,7 @@ export default function EditPanel({ line, index, active, onTone }) {
               {v.name}
             </p>
             <p className="edit__script script">{v.soon ? 'Coming soon' : line.script}</p>
-            {line.claimsLabel && <p className="edit__claims-label label">{v.soon ? 'Private label welcome' : line.claimsLabel}</p>}
+            {line.claimsLabel && !v.soon && <p className="edit__claims-label label">{line.claimsLabel}</p>}
             {!v.soon && (
               <ul className="edit__claims">
                 {line.claims.map(([icon, text]) => (

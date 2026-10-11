@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import { archD } from '../lib/arch.js'
 
-const TYPES = ['Supermarket', 'Distributor', 'Gifting & hospitality', 'Private label', 'Other']
+const TYPES = ['Supermarket', 'Distributor', 'Gifting & hospitality', 'Other']
 const RULES = {
   name: (v) => (v.trim().length < 2 ? 'Please tell us your name.' : ''),
   company: (v) => (v.trim().length < 2 ? 'Please add your company name.' : ''),
@@ -145,12 +145,11 @@ export default function Partner() {
             Work <br />
             with us
           </h2>
-          <p className="partner__text">We are working with supermarkets, distributors, gifting and hospitality partners, and private-label customers. If you would like to stock Ajeebas or talk about a partnership, we would love to hear from you.</p>
+          <p className="partner__text">We are working with supermarkets, distributors, and gifting and hospitality partners. If you would like to stock Ajeebas or talk about a partnership, we would love to hear from you.</p>
           <ul className="partner__types" aria-label="Who we work with">
             <li>Supermarkets</li>
             <li>Distributors</li>
             <li>Gifting &amp; hospitality</li>
-            <li>Private label</li>
           </ul>
           <div className="partner__direct">
             <p className="label">Email us directly</p>

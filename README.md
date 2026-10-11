@@ -36,7 +36,7 @@ npm run dev        # http://localhost:5204
 | 3 | Flavour tapes | website-2 | Two crossing marquee bands; speed follows scroll velocity and direction. |
 | 4 | Our story | website-2 | Words ink in as you scroll; key phrases get a pistachio highlight. |
 | 5 | What we make | website-3 | The four product lines as a menu card; each arrow jumps to its product panel. |
-| 6 | Products | website-1 horizontal scroll + website-2 "Edit" design | Pinned section moved sideways by your own scrolling (screens 1024 px and wider; stacked below that). Panels: Dates, Crunch sticks, Kunafa spotlight, Truffle (Coconut Truffles), Filling chocolate (more flavours coming soon). Each panel repaints in the selected flavour's colours; flavours rotate on a timer while the panel is on screen (pause/play button; choosing a flavour pauses it). |
+| 6 | Products | website-1 horizontal scroll + website-2 "Edit" design | Pinned section moved sideways by your own scrolling (screens 1024 px and wider; stacked below that). Panels: Dates, Crunch sticks, Kunafa bar, Truffle (Coconut Truffles), Filling chocolate (more flavours coming soon). Each panel repaints in the selected flavour's colours; flavours rotate on a timer while the panel is on screen (pause/play button; choosing a flavour pauses it). |
 | 7 | Our four promises | website-2 (compacted) | Cards dock on top of each other while scrolling and leave together. |
 | 8 | Made in the UAE | website-2 | Live countdown to the opening; switches to "Now open" on 23 Oct 2026 (Dubai time). |
 | 9 | Leadership | website-2 | CEO section. |
@@ -65,7 +65,6 @@ website-4/
 │   ├── logo/                   # all logo variants (SVG)
 │   ├── images/
 │   │   ├── cut/                # product cut-outs (transparent WebP)
-│   │   ├── kunafa-bar-placeholder.svg   # illustrated Kunafa bar (placeholder, see below)
 │   │   └── og-ajeebas.jpg      # social sharing image
 │   └── textures/               # arch mask + emblem lattice pattern
 └── src/
@@ -83,8 +82,7 @@ website-4/
     │   ├── products/
     │   │   ├── data.js         # product lines, flavours, images, colours  <- edit products here
     │   │   ├── Products.jsx    # horizontal pin / stacked layout, progress rail
-    │   │   ├── EditPanel.jsx   # "The ___ edit" flavour panel
-    │   │   └── KunafaPanel.jsx # Kunafa spotlight
+    │   │   └── EditPanel.jsx   # "The ___ edit" flavour panel
     │   ├── Promises.jsx
     │   ├── Factory.jsx         # Made in the UAE + countdown
     │   ├── Leadership.jsx
@@ -131,7 +129,6 @@ website-4/
 | Navbar links | `NAV` in `src/components/Header.jsx` |
 | Contact email | `MAIL` in `src/components/Partner.jsx`, plus `Header.jsx` and `Footer.jsx` |
 | Section copy | the matching component in `src/components/` |
-| Kunafa bar image | replace `public/images/kunafa-bar-placeholder.svg` (see below) |
 
 ### Product images
 
@@ -141,15 +138,12 @@ cut-out has its hang hole cut out (transparent) so the hero pour can show throug
 changes: cut it out cleanly, punch out the hang hole, save it over the old `.webp` with the same name, and
 update its `w`/`h` in `src/components/products/data.js` (and in `Hero.jsx` for the three hero pouches).
 
-### Kunafa bar placeholder
+### Kunafa bar
 
-There is no product photo of the Kunafa bar yet. `public/images/kunafa-bar-placeholder.svg` is an
-illustrated placeholder in the style of the other wrappers. Its parts are animated when the panel appears
-(the bar snaps in half), using the SVG's element ids (`#kb-left`, `#kb-right`, `.kb-strand`).
-
-To use a real photo:
-1. Replace the `<img>` in `KunafaPanel.jsx` with the photo.
-2. Remove the fetch/inline step in the same file, which only works with the SVG.
+The Kunafa bar is a box, not a pouch, so it has no hang hole. Its source is
+`../brand-assets/images/kunafa-bar-box.png` (supplied as a PNG named `.pdf`); the cut-out is
+`public/images/cut/kunafa-bar-box.webp`, made with `../idea-bank/cut-kunafa-box.py`. The old illustrated
+placeholder and its snap animation are kept in `../brand-assets/legacy/`.
 
 ### Contact form
 

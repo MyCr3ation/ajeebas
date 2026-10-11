@@ -1,4 +1,4 @@
-/** Leadership: the name set large in Fraunces italic, the client's paragraph verbatim. */
+/** Leadership: the name set large in Fraunces italic, the client's text verbatim. */
 export default function Leadership() {
   return (
     <section className="lead wrap" id="leadership" aria-labelledby="lead-title">
@@ -11,13 +11,11 @@ export default function Leadership() {
         </h2>
       </div>
       <div className="lead__body rv">
-        <p className="lead__name serif-i" aria-hidden="true">
-          Jamal Abdul Nazar
-        </p>
-        <p className="lead__role label" aria-hidden="true">
-          Chief Executive Officer
-        </p>
-        <p className="lead__text">Ajeebas Chocolate is led by Jamal Abdul Nazar, Chief Executive Officer. Jamal is also CEO of Al Mindasah General Trading, a UAE food distribution business. That experience in getting good food onto shelves is what shapes how we build Ajeebas: with the retailer and the customer in mind from day one.</p>
+        <p className="lead__name serif-i">Jamal Abdul Nazar</p>
+        <p className="lead__role label">Chairman &amp; Chief Executive Officer</p>
+        <p className="lead__text">Ajeebas Chocolate is led by Jamal Abdul Nazar, a visionary entrepreneur with extensive experience in the UAE’s food distribution industry.</p>
+        <p className="lead__more">Driven by a passion for quality, innovation, and customer satisfaction, he brings a wealth of market knowledge to Ajeebas. His vision is to create exceptional chocolate experiences while building lasting relationships with retailers and consumers. Beyond business, his vision is rooted in compassion and social responsibility. He believes that true success lies not only in business growth but also in giving back to society.</p>
+        <p className="lead__vision serif-i">At Ajeebas, his vision is simple: to combine quality, trust, and innovation in every chocolate we create.</p>
       </div>
     </section>
   )

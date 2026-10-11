@@ -2,12 +2,11 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { gsap, ScrollTrigger, env, registerScrollTarget } from '../../lib/motion.js'
 import { PANELS } from './data.js'
 import EditPanel from './EditPanel.jsx'
-import KunafaPanel from './KunafaPanel.jsx'
 
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v))
 
 /**
- * The collection. On desktop the section pins and your scroll carries you sideways through the four
+ * The collection. On desktop the section pins and your scroll carries you sideways through the five
  * lines, one full-screen panel each (manual: nothing moves between products on its own). Inside a
  * panel, flavours take turns on a timer. On phones and tablets the panels simply stack.
  */
@@ -151,13 +150,9 @@ export default function Products() {
         The collection
       </h2>
       <div className="products__track">
-        {PANELS.map((line, i) =>
-          line.variants ? (
-            <EditPanel key={line.id} line={line} index={i} active={active === i} onTone={toneSetters.current[i]} />
-          ) : (
-            <KunafaPanel key={line.id} index={i} active={active === i} onTone={toneSetters.current[i]} />
-          )
-        )}
+        {PANELS.map((line, i) => (
+          <EditPanel key={line.id} line={line} index={i} active={active === i} onTone={toneSetters.current[i]} />
+        ))}
       </div>
       <nav className="products__progress" aria-label="The collection">
         <ol>
