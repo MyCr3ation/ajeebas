@@ -1,4 +1,12 @@
-/** Leadership: the name set large in Fraunces italic, the client's text verbatim. */
+import { archD } from '../lib/arch.js'
+
+/**
+ * Leadership: the name set large in Fraunces italic, the client's text verbatim.
+ * The portrait sits in the Ajeebas arch, ringed by a gold line that draws in on reveal.
+ * Frame geometry is in a 440×640 box; the photo's inset in CSS (.lead__photo) matches PHOTO.
+ */
+const PHOTO = { x: 23, y: 31, w: 394 }
+
 export default function Leadership() {
   return (
     <section className="lead wrap" id="leadership" aria-labelledby="lead-title">
@@ -9,6 +17,22 @@ export default function Leadership() {
         <h2 className="lead__title display" id="lead-title">
           Leadership
         </h2>
+        <figure className="lead__portrait">
+          <div className="lead__photo">
+            <img
+              src="/Leader.jpeg"
+              alt="Jamal Abdul Nazar, Chairman and Chief Executive Officer of Ajeebas Chocolate"
+              width="2160"
+              height="3240"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <svg className="lead__frame" viewBox="0 0 440 640" aria-hidden="true" focusable="false">
+            <path d={archD(1, 1, 438, 639)} pathLength="1" strokeWidth="1.2" strokeOpacity="0.6" />
+            <path d={archD(PHOTO.x - 8, PHOTO.y - 11, PHOTO.w + 16, 640 - PHOTO.y + 11, false)} pathLength="1" strokeWidth="0.8" strokeOpacity="0.35" />
+          </svg>
+        </figure>
       </div>
       <div className="lead__body rv">
         <p className="lead__name serif-i">Jamal Abdul Nazar</p>

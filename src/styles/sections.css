@@ -562,6 +562,71 @@
   font-size: clamp(50px, 5vw, 100px);
   white-space: nowrap;
 }
+/* portrait in the Ajeebas arch; insets match PHOTO in Leadership.jsx (box 440×640) */
+.lead__portrait {
+  position: relative;
+  width: min(100%, 440px);
+  aspect-ratio: 440 / 640;
+  margin: clamp(14px, 2.4vw, 40px) 0 0;
+}
+.lead__photo {
+  position: absolute;
+  left: calc(23 / 440 * 100%);
+  right: calc(23 / 440 * 100%);
+  top: calc(31 / 640 * 100%);
+  bottom: 0;
+  overflow: hidden;
+  background: var(--sand);
+  -webkit-mask: url('/textures/arch-mask.svg') top center / 100% auto no-repeat;
+  mask: url('/textures/arch-mask.svg') top center / 100% auto no-repeat;
+}
+.lead__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 52% 30%;
+  /* a touch of warmth only; whites and blacks stay true */
+  filter: sepia(0.08);
+  transition: scale 1.6s var(--ease);
+}
+/* light cocoa vignette at the edges and a softer dome (tames the ring light); the centre is untouched */
+.lead__photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 85% at 50% 48%, rgb(var(--cocoa-rgb) / 0) 62%, rgb(var(--cocoa-rgb) / 0.18)),
+    linear-gradient(180deg, rgb(74 44 30 / 0.28), rgb(74 44 30 / 0) 20%);
+  mix-blend-mode: multiply;
+}
+.lead__portrait:hover .lead__photo img {
+  scale: 1.04;
+}
+.lead__frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: none;
+  stroke: var(--gold);
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .motion .lead__aside .lead__frame path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 2.6s var(--ease-io) 0.3s;
+  }
+  .motion .lead__aside .lead__frame path + path {
+    transition-delay: 0.6s;
+  }
+  .motion .lead__aside.is-in .lead__frame path {
+    stroke-dashoffset: 0;
+  }
+}
 .lead__body {
   grid-column: 6 / 13;
   display: grid;
@@ -1008,6 +1073,9 @@
   .lead__aside,
   .lead__body {
     grid-column: 1 / -1;
+  }
+  .lead__portrait {
+    width: min(100%, 380px);
   }
   .partner__arch {
     display: none;
