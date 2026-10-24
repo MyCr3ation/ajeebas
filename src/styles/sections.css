@@ -562,47 +562,52 @@
   font-size: clamp(50px, 5vw, 100px);
   white-space: nowrap;
 }
-/* portrait in the Ajeebas arch; insets match PHOTO in Leadership.jsx (box 440×640) */
+/* portrait in the Ajeebas arch; insets match PHOTO and H in Leadership.jsx (box 440×560, photo 394×529) */
 .lead__portrait {
   position: relative;
   width: min(100%, 440px);
-  aspect-ratio: 440 / 640;
+  aspect-ratio: 440 / 560;
   margin: clamp(14px, 2.4vw, 40px) 0 0;
 }
+/*
+ * The photo is landscape and tight above his head, so it sits at the bottom of the arch (--img-h)
+ * and the dome above is filled by its own top rows stretched upward: the vertical wood slats carry
+ * on unbroken and the head sits in the dome. The background matches the img's cover crop exactly:
+ * width = 3:2 image at --img-h of the photo height, same x position.
+ */
 .lead__photo {
+  --img-h: 0.88;
+  --img-x: 54%;
   position: absolute;
   left: calc(23 / 440 * 100%);
   right: calc(23 / 440 * 100%);
-  top: calc(31 / 640 * 100%);
+  top: calc(31 / 560 * 100%);
   bottom: 0;
   overflow: hidden;
-  background: var(--sand);
+  background: var(--sand) url('/Leadership.jpeg') var(--img-x) 0 / calc(1.5 * var(--img-h) * 529 / 394 * 100%) 3000% no-repeat;
+  /* a touch of warmth only; whites and blacks stay true */
+  filter: sepia(0.08);
   -webkit-mask: url('/textures/arch-mask.svg') top center / 100% auto no-repeat;
   mask: url('/textures/arch-mask.svg') top center / 100% auto no-repeat;
 }
 .lead__photo img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
   display: block;
   width: 100%;
-  height: 100%;
+  height: calc(var(--img-h) * 100%);
   object-fit: cover;
-  object-position: 52% 30%;
-  /* a touch of warmth only; whites and blacks stay true */
-  filter: sepia(0.08);
-  transition: scale 1.6s var(--ease);
+  object-position: var(--img-x) 0;
 }
-/* light cocoa vignette at the edges and a softer dome (tames the ring light); the centre is untouched */
+/* light cocoa vignette at the edges; the centre is untouched */
 .lead__photo::after {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(120% 85% at 50% 48%, rgb(var(--cocoa-rgb) / 0) 62%, rgb(var(--cocoa-rgb) / 0.18)),
-    linear-gradient(180deg, rgb(74 44 30 / 0.28), rgb(74 44 30 / 0) 20%);
+  background: radial-gradient(120% 85% at 50% 48%, rgb(var(--cocoa-rgb) / 0) 62%, rgb(var(--cocoa-rgb) / 0.18));
   mix-blend-mode: multiply;
-}
-.lead__portrait:hover .lead__photo img {
-  scale: 1.04;
 }
 .lead__frame {
   position: absolute;
