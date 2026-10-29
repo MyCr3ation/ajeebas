@@ -125,6 +125,13 @@
 .edit[data-variant='calmond'] { --stage-bg: #2b1a12; --stage-fg: #f6eedd; --stage-accent: #b88553; --stage-letters: #4a2c1e; --stage-line: #7a4a2e; }
 .edit[data-variant='kunafa'] { --stage-bg: #f6eedd; --stage-fg: #2b1a12; --stage-accent: #4f7a3a; --stage-letters: #dcc9ae; --stage-line: #b88553; }
 .edit[data-variant='coconut'] { --stage-bg: #fcf9f3; --stage-fg: #2b1a12; --stage-accent: #4f7a3a; --stage-letters: #e8efd6; --stage-line: #dcc9ae; }
+/* filled bars: backdrop colour sampled from each photo; letters are a veil of white over the photo */
+.edit[data-variant='fmango'] { --stage-bg: #f0961b; --stage-fg: #2b1a12; --stage-accent: #2b1a12; --stage-letters: rgb(255 255 255 / 0.5); --stage-line: rgb(43 26 18 / 0.4); }
+.edit[data-variant='fpist'] { --stage-bg: #8a7f38; --stage-fg: #fcf9f3; --stage-accent: #e8efd6; --stage-letters: rgb(255 255 255 / 0.4); --stage-line: rgb(252 249 243 / 0.45); }
+.edit[data-variant='fbanana'] { --stage-bg: #772f0a; --stage-fg: #f6eedd; --stage-accent: #dcc9ae; --stage-letters: rgb(255 255 255 / 0.3); --stage-line: rgb(246 238 221 / 0.4); }
+.edit[data-variant='forange'] { --stage-bg: #c8430a; --stage-fg: #fcf9f3; --stage-accent: #f6eedd; --stage-letters: rgb(255 255 255 / 0.36); --stage-line: rgb(252 249 243 / 0.45); }
+.edit[data-variant='fstraw'] { --stage-bg: #c64840; --stage-fg: #fcf9f3; --stage-accent: #f6eedd; --stage-letters: rgb(255 255 255 / 0.4); --stage-line: rgb(252 249 243 / 0.45); }
+.edit[data-variant='fcoco'] { --stage-bg: #9ec2d8; --stage-fg: #2b1a12; --stage-accent: #4a2c1e; --stage-letters: rgb(255 255 255 / 0.62); --stage-line: rgb(43 26 18 / 0.35); }
 .edit[data-variant='soon'] { --stage-bg: #a8c686; --stage-fg: #2b1a12; --stage-accent: #2b1a12; --stage-letters: #e8efd6; --stage-line: #4f7a3a; }
 
 .products.is-horizontal .edit__title {
@@ -313,6 +320,80 @@
   background: radial-gradient(closest-side, rgb(var(--espresso-rgb) / 0.32), transparent);
   z-index: -1;
 }
+/* filled bars: the studio photo, extended into a wide scene. Two identical layers: the scene behind the giant
+   letters and the bar alone in front of them, so the word sits behind the bar. */
+.edit__scene {
+  position: absolute;
+  inset: 0 calc(-1 * var(--gutter));
+  z-index: 0;
+  pointer-events: none;
+  --scene-size: 190% auto;
+  --scene-pos: 96% 33%;
+  -webkit-mask-image: linear-gradient(transparent, #000 16%, #000 84%, transparent);
+  mask-image: linear-gradient(transparent, #000 16%, #000 84%, transparent);
+}
+.edit__scene--bar {
+  z-index: 1;
+}
+.edit__scene i {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-repeat: no-repeat;
+  background-size: var(--scene-size);
+  background-position: var(--scene-pos);
+  visibility: hidden;
+}
+.edit__scene i[data-on='true'] {
+  z-index: 1;
+  visibility: visible;
+}
+/* changing flavour: a soft-edged wipe sweeps across (--w is animated by EditPanel). "in" reveals the new
+   photo over the old one; "out" clears the last photo away when the next flavour has none */
+.edit__scene i[data-wipe] {
+  z-index: 2;
+  visibility: visible;
+  --wipe: linear-gradient(to right, #000 calc(var(--w, 0%) - 20%), transparent var(--w, 0%));
+  -webkit-mask-image: var(--wipe);
+  mask-image: var(--wipe);
+}
+.edit__scene i[data-wipe='out'] {
+  --wipe: linear-gradient(to right, transparent calc(var(--w, 0%) - 20%), #000 var(--w, 0%));
+}
+/* desktop: the panel-wide layers fill the whole panel, bar on the right beside the copy; the stacked layout
+   uses the layers inside the stage */
+.edit__scene--panel,
+.products.is-horizontal .edit__scene--stage {
+  display: none;
+}
+.edit__letters--panel,
+.products.is-horizontal .edit--filled .edit__stage .edit__letters {
+  display: none;
+}
+/* desktop: the word sits in the photo's clear upper-right corner (the props gather in its lower half), between
+   the backdrop and the bar layer; the copy and tabs stay above both layers. The photo covers the panel anchored
+   right, so the strip beside the bar is 215 of the scene's 2400 px: max(215/2400 vw, 215/1350 vh). The word is
+   sized to fit that strip (a column is 0.76em wide) with a clear gap to the bar, and kept short enough to end
+   above the props. */
+.products.is-horizontal .edit__letters--panel {
+  display: flex;
+  top: 9%;
+  right: var(--gutter);
+  transform: rotate(180deg);
+  font-size: min(11.4vh, 170px, calc((max(8.96vw, 15.93vh) - var(--gutter) - 16px) / 0.76));
+}
+.products.is-horizontal .edit--filled .edit__inner {
+  position: relative;
+  z-index: 2;
+}
+.products.is-horizontal .edit__scene--panel {
+  display: block;
+  inset: 0;
+  --scene-size: cover;
+  --scene-pos: 100% 50%;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
 .edit__soon {
   position: relative;
   display: grid;
@@ -395,6 +476,17 @@
   letter-spacing: 0.12em;
   opacity: 0.7;
   font-variant-numeric: tabular-nums;
+}
+/* seven filled flavours: tighter tabs so they keep to one row */
+.edit--filled .edit__tabs {
+  gap: 8px;
+}
+.edit--filled .ftab {
+  gap: 8px;
+  padding: 0 16px 0 10px;
+}
+.edit--filled .ftab__n {
+  display: none;
 }
 .ftab__bar {
   position: absolute;
@@ -521,6 +613,17 @@
   .edit__stage {
     grid-column: 7 / 13;
   }
+  /* stacked: the photo spans the stage plus a gutter each side and is drawn at 190% of that, so the strip right
+     of the bar is 13.4% of it. The word runs close to the photo's edge, sized to keep a clear gap to the bar */
+  .edit--filled .edit__stage {
+    container-type: inline-size;
+  }
+  .edit--filled .edit__stage .edit__letters {
+    top: 3%;
+    right: calc(6px - var(--gutter));
+    transform: rotate(180deg);
+    font-size: min(80px, calc((0.134 * (100cqw + 2 * var(--gutter)) - 18px) / 0.76));
+  }
 }
 @media (max-width: 900px) {
   .edit {
@@ -566,6 +669,10 @@
   }
   .edit__soon {
     width: min(76vw, 360px);
+  }
+  /* the landscape bars (and the coming-soon disc) need less height than the tall packs */
+  .edit--filled .edit__stage {
+    height: clamp(300px, 84vw, 560px);
   }
 }
 @media (max-width: 600px) {

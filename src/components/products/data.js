@@ -65,6 +65,21 @@ export const TRUFFLE = {
   ],
 }
 
+// the filled bars have no wrapper yet, so they are shown in their studio photos, used full-bleed: each photo
+// is extended into a wide scene (its own backdrop, mirrored and thrown out of focus) with the bar always at the
+// same place. A second layer holds just the bar, so the giant letters can sit behind it.
+const filled = (key, tab, slug, swatch, tone) => ({
+  key,
+  tab,
+  name: tab,
+  scene: `/images/filled/filled-scene-${slug}.webp`,
+  sceneBar: `/images/filled/filled-scene-${slug}-bar.webp`,
+  alt: `Ajeebas filling chocolate, ${tab}: the bar broken open to show the filling`,
+  tone,
+  swatch,
+  ings: [],
+})
+
 export const FILLED = {
   id: 'line-filled',
   short: 'Filling chocolate',
@@ -72,11 +87,17 @@ export const FILLED = {
   titleItalic: 'The',
   titleCaps: 'Filled edit',
   letters: 'FILLED',
-  script: 'Coming soon',
+  script: 'Filled to the centre',
   style: 'Filled bar',
   claims: [],
   foot: 'More flavours coming soon',
   variants: [
+    filled('fmango', 'Mango Chili', 'mango-chili', '#e3ae62', 'light'),
+    filled('fpist', 'Pistachio', 'pistachio', '#9aa055', 'dark'),
+    filled('fbanana', 'Banana Cinnamon', 'banana-cinnamon', '#d8b48a', 'dark'),
+    filled('forange', 'Dark Orange', 'dark-orange', '#d9661e', 'dark'),
+    filled('fstraw', 'Strawberry Cheesecake', 'strawberry-cheesecake', '#d9707c', 'dark'),
+    filled('fcoco', 'Coconut', 'coconut', '#fcf9f3', 'light'),
     { key: 'soon', tab: 'Coming soon', name: 'More flavours', soon: true, tone: 'light', swatch: 'var(--pist)', ings: ['pistachio', 'almond', 'date', 'pistachio-shell', 'chunk', 'coconut'] },
   ],
 }

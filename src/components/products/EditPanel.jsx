@@ -14,6 +14,22 @@ const SLOTS = [
 const AUTO = 4.6 // seconds per flavour
 
 /**
+ * Photo scenes for lines shown in studio photos: one layer per flavour. `bar` is the copy holding only the
+ * bar, laid over the giant letters. Desktop shows the panel-wide copy, the stacked layout the one inside the
+ * stage. Only the first scene loads before the panel has been on screen. Which layer shows is set by
+ * `animateTo` (data-on / data-wipe), not by React, so `first` only seeds the opening state.
+ */
+function Scene({ scenes, first, seen, at, bar = false }) {
+  return (
+    <div className={`edit__scene edit__scene--${at}${bar ? ' edit__scene--bar' : ''}`} aria-hidden="true">
+      {scenes.map((x, i) => (
+        <i key={x.key} data-k={x.key} data-on={x.key === first} style={seen || (i === 0 && !bar) ? { backgroundImage: `url(${bar ? x.sceneBar : x.scene})` } : undefined} />
+      ))}
+    </div>
+  )
+}
+
+/**
  * "The ___ edit": a product line presented one flavour at a time. The whole panel repaints in the
  * flavour's colours, the pack turns like a page, the giant vertical word tumbles and the ingredients
  * burst out and drop back in. A timer moves to the next flavour while the panel is on screen; choosing
@@ -33,6 +49,13 @@ export default function EditPanel({ line, index, active, onTone }) {
   useEffect(() => {
     if (active) onTone?.(vc.tone)
   }, [active, vc.tone, onTone])
+
+  // photo scenes: the rest load once the panel has been on screen
+  const [seen, setSeen] = useState(false)
+  useEffect(() => {
+    if (active) setSeen(true)
+  }, [active])
+  const scenes = line.variants.filter((x) => x.scene)
 
   // the entrance of the ingredients for whatever flavour is shown
   useEffect(() => {
@@ -55,9 +78,25 @@ export default function EditPanel({ line, index, active, onTone }) {
       return
     }
     if (k === shownRef.current) return
-    shownRef.current = k
     const root = ref.current
+    // photo scenes: the new one wipes in over the old with a soft edge (or the old one wipes away when the
+    // new flavour has no photo); the old one stays whole underneath until the wipe is done
+    const layers = (x) => (x.scene ? [...root.querySelectorAll(`.edit__scene i[data-k="${x.key}"]`)] : [])
+    const from = layers(line.variants[shownRef.current])
+    const into = layers(line.variants[k])
+    const settle = () => {
+      from.forEach((el) => {
+        el.dataset.on = 'false'
+        el.removeAttribute('data-wipe')
+      })
+      into.forEach((el) => {
+        el.dataset.on = 'true'
+        el.removeAttribute('data-wipe')
+      })
+    }
+    shownRef.current = k
     if (env.reduce) {
+      settle()
       setShown(k)
       return
     }
@@ -77,12 +116,21 @@ export default function EditPanel({ line, index, active, onTone }) {
     tl.to(media, { rotationY: 90, x: -30, duration: 0.38, ease: 'power2.in' }, 0)
       .to(name, { yPercent: -60, opacity: 0, duration: 0.3, ease: 'power2.in' }, 0)
       .to(ings, { scale: 0, opacity: 0, x: () => gsap.utils.random(-80, 80), y: () => gsap.utils.random(-60, 60), duration: 0.4, ease: 'power2.in', stagger: 0.03 }, 0)
-      .fromTo(letters, { rotationX: 0 }, { rotationX: 360, duration: 1, ease: 'expo.inOut', stagger: 0.05 }, 0)
-      .add(() => setShown(k), 0.4)
+    // the old front layer (bar and props over the giant word) wipes out in step, so none of the old flavour
+    // is left standing over the new photo once the edge has passed
+    const out = into.length ? from.filter((el) => el.parentNode.classList.contains('edit__scene--bar')) : from
+    if (into.length || out.length) {
+      into.forEach((el) => (el.dataset.wipe = 'in'))
+      out.forEach((el) => (el.dataset.wipe = 'out'))
+      tl.fromTo([...into, ...out], { '--w': '0%' }, { '--w': '120%', duration: 1.15, ease: 'power1.inOut' }, 0).add(settle)
+    }
+    // on a photo line the giant word stays put (the photos move under and over it); elsewhere it tumbles
+    if (!line.variants.some((x) => x.scene)) tl.fromTo(letters, { rotationX: 0 }, { rotationX: 360, duration: 1, ease: 'expo.inOut', stagger: 0.05 }, 0)
+    tl.add(() => setShown(k), 0.4)
       .fromTo(media, { rotationY: -90, x: 30 }, { rotationY: 0, x: 0, duration: 0.9, ease: 'back.out(1.5)', immediateRender: false }, 0.42)
       .fromTo(name, { yPercent: 60, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.7, ease: 'expo.out', immediateRender: false }, 0.42)
       .fromTo(root.querySelector('.edit__script'), { clipPath: 'inset(-20% 100% -20% 0)' }, { clipPath: 'inset(-20% 0% -20% 0)', duration: 0.9, ease: 'power2.inOut' }, 0.4)
-  }, [])
+  }, [line.variants])
 
   // the selection (tabs, focus, colours) changes at once; the pack follows
   const select = useCallback(
@@ -151,6 +199,13 @@ export default function EditPanel({ line, index, active, onTone }) {
 
   return (
     <article className={`panel edit edit--${line.id.replace('line-', '')}`} id={line.id} ref={ref} data-variant={vc.key} data-tone={vc.tone} aria-labelledby={`${line.id}-title`}>
+      {scenes.length > 0 && <Scene scenes={scenes} first={line.variants[0].key} seen={seen} at="panel" />}
+      {/* on a photo line the giant word belongs to the panel-wide photo, placed in its clear upper corner */}
+      {scenes.length > 0 && (
+        <p className="edit__letters edit__letters--panel" aria-hidden="true">
+          {line.letters}
+        </p>
+      )}
       <div className="edit__inner wrap">
         <div className="edit__copy">
           <p className="label">
@@ -182,6 +237,7 @@ export default function EditPanel({ line, index, active, onTone }) {
         </div>
 
         <div className="edit__stage">
+          {scenes.length > 0 && <Scene scenes={scenes} first={line.variants[0].key} seen={seen} at="stage" />}
           <p className="edit__letters" aria-hidden="true">
             {[...line.letters].map((ch, i) => (
               <span key={i}>{ch}</span>
@@ -209,6 +265,8 @@ export default function EditPanel({ line, index, active, onTone }) {
                     <span className="display">More</span> <span className="serif-i">flavours</span> <span className="display">soon</span>
                   </p>
                 </div>
+              ) : v.scene ? (
+                <span className="sr-only" role="img" aria-label={v.alt} />
               ) : (
                 <>
                   <img className="edit__img" src={v.img} width={v.w} height={v.h} alt={v.alt} loading="lazy" decoding="async" />
@@ -216,8 +274,9 @@ export default function EditPanel({ line, index, active, onTone }) {
                 </>
               )}
             </div>
-            <span className="edit__shadow" aria-hidden="true" />
+            {!v.scene && <span className="edit__shadow" aria-hidden="true" />}
           </div>
+          {scenes.length > 0 && <Scene scenes={scenes} first={line.variants[0].key} seen={seen} at="stage" bar />}
         </div>
 
         <div className="edit__controls">
@@ -250,6 +309,7 @@ export default function EditPanel({ line, index, active, onTone }) {
           )}
         </div>
       </div>
+      {scenes.length > 0 && <Scene scenes={scenes} first={line.variants[0].key} seen={seen} at="panel" bar />}
     </article>
   )
 }
