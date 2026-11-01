@@ -7,7 +7,7 @@ export const LINES = [
   { id: 'line-crunch', name: 'Crunch sticks', text: 'crisp, golden and full of real nut flavour, in Pistachio and Almond.' },
   { id: 'line-kunafa', name: 'Kunafa bar', text: 'the flavour of a beloved dessert, in a bar you can break and share.' },
   { id: 'line-truffle', name: 'Truffle', text: 'coconut truffles made with dates, milk chocolate and desiccated coconut: a little bite of happiness.' },
-  { id: 'line-filled', name: 'Filling chocolate', text: 'bars with a range of fillings, with more flavours coming soon.' },
+  { id: 'line-filled', name: 'Filling chocolate', text: 'bars with a range of fillings, from Mango Chili to Cookies & Cream Crunch.' },
 ]
 
 // nuts, dates and crumbs drifting down the gutter between the columns (left %, top %, size px, icon, depth)

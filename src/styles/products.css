@@ -138,7 +138,12 @@
 .edit[data-variant='forange'] { --stage-bg: #c8430a; --stage-fg: #fcf9f3; --stage-accent: #f6eedd; --stage-letters: rgb(255 255 255 / 0.36); --stage-line: rgb(252 249 243 / 0.45); }
 .edit[data-variant='fstraw'] { --stage-bg: #c64840; --stage-fg: #fcf9f3; --stage-accent: #f6eedd; --stage-letters: rgb(255 255 255 / 0.4); --stage-line: rgb(252 249 243 / 0.45); }
 .edit[data-variant='fcoco'] { --stage-bg: #9ec2d8; --stage-fg: #2b1a12; --stage-accent: #4a2c1e; --stage-letters: rgb(255 255 255 / 0.62); --stage-line: rgb(43 26 18 / 0.35); }
-.edit[data-variant='soon'] { --stage-bg: #a8c686; --stage-fg: #2b1a12; --stage-accent: #2b1a12; --stage-letters: #e8efd6; --stage-line: #4f7a3a; }
+.edit[data-variant='fhazel'] { --stage-bg: #863e1e; --stage-fg: #fcf9f3; --stage-accent: #f6eedd; --stage-letters: rgb(255 255 255 / 0.3); --stage-line: rgb(252 249 243 / 0.45); }
+.edit[data-variant='fbiscuit'] { --stage-bg: #ddb081; --stage-fg: #2b1a12; --stage-accent: #2b1a12; --stage-letters: rgb(255 255 255 / 0.5); --stage-line: rgb(43 26 18 / 0.4); }
+.edit[data-variant='fchoco'] { --stage-bg: #ca8569; --stage-fg: #2b1a12; --stage-accent: #2b1a12; --stage-letters: rgb(255 255 255 / 0.42); --stage-line: rgb(43 26 18 / 0.4); }
+.edit[data-variant='fpearl'] { --stage-bg: #f3e0cc; --stage-fg: #2b1a12; --stage-accent: #4a2c1e; --stage-letters: rgb(184 133 83 / 0.28); --stage-line: rgb(43 26 18 / 0.3); }
+.edit[data-variant='fcoffee'] { --stage-bg: #813b17; --stage-fg: #f6eedd; --stage-accent: #dcc9ae; --stage-letters: rgb(255 255 255 / 0.3); --stage-line: rgb(246 238 221 / 0.4); }
+.edit[data-variant='fcookies'] { --stage-bg: #85abc7; --stage-fg: #2b1a12; --stage-accent: #2b1a12; --stage-letters: rgb(255 255 255 / 0.55); --stage-line: rgb(43 26 18 / 0.35); }
 
 .products.is-horizontal .edit__title {
   white-space: nowrap;
@@ -693,6 +698,29 @@
   .edit__controls {
     grid-row: 3;
     flex-wrap: wrap;
+  }
+  /* twelve flavours would stack seven rows deep: on phones and tablets they become one swipeable row */
+  .edit--filled .edit__controls {
+    flex-wrap: nowrap;
+  }
+  .edit--filled .edit__tabs {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 4px 28px 4px 2px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -webkit-mask: linear-gradient(90deg, #000 82%, transparent);
+    mask: linear-gradient(90deg, #000 82%, transparent);
+  }
+  .edit--filled .edit__tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .edit--filled .ftab {
+    flex: none;
+    scroll-snap-align: start;
   }
   .edit__soon {
     width: min(76vw, 360px);

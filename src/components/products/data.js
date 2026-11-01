@@ -116,7 +116,6 @@ export const FILLED = {
   script: 'Filled to the centre',
   style: 'Filled bar',
   claims: [],
-  foot: 'More flavours coming soon',
   variants: [
     filled('fmango', 'Mango Chili', 'mango-chili', '#e3ae62', 'light'),
     filled('fpist', 'Pistachio', 'pistachio', '#9aa055', 'dark'),
@@ -124,7 +123,12 @@ export const FILLED = {
     filled('forange', 'Dark Orange', 'dark-orange', '#d9661e', 'dark'),
     filled('fstraw', 'Strawberry Cheesecake', 'strawberry-cheesecake', '#d9707c', 'dark'),
     filled('fcoco', 'Coconut', 'coconut', '#fcf9f3', 'light'),
-    { key: 'soon', tab: 'Coming soon', name: 'More flavours', soon: true, tone: 'light', swatch: 'var(--pist)', ings: ['pistachio', 'almond', 'date', 'pistachio-shell', 'chunk', 'coconut'] },
+    filled('fhazel', 'Hazelnut', 'hazelnut', '#c8955e', 'dark'),
+    filled('fbiscuit', 'Caramel Biscuit', 'caramel-biscuit', '#d6a26b', 'light'),
+    filled('fchoco', 'Choco Hazelnut Spread', 'choco-hazelnut-spread', '#7a4127', 'light'),
+    filled('fpearl', 'Coconut Pearl', 'coconut-pearl', '#efe2c4', 'light'),
+    filled('fcoffee', 'Coffee', 'coffee', '#b07a4f', 'dark'),
+    filled('fcookies', 'Cookies & Cream Crunch', 'cookies-cream-crunch', '#3a2a24', 'light'),
   ],
 }
 

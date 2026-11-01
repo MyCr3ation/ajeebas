@@ -156,6 +156,14 @@ export default function EditPanel({ line, index, active, onTone }) {
     return () => barTween.current?.kill()
   }, [current, paused, active, select, line.variants.length])
 
+  // when the tabs are a swipeable strip (long lists on phones), keep the current one in view without moving the page
+  useEffect(() => {
+    const tabs = ref.current.querySelector('.edit__tabs')
+    if (!tabs || tabs.scrollWidth <= tabs.clientWidth + 1) return
+    const t = tabs.children[current]
+    if (t) tabs.scrollTo({ left: t.offsetLeft - (tabs.clientWidth - t.offsetWidth) / 2, behavior: env.reduce ? 'auto' : 'smooth' })
+  }, [current])
+
   // gentle 3D tilt that follows the pointer (desktop)
   useEffect(() => {
     if (!env.fine || env.reduce) return
