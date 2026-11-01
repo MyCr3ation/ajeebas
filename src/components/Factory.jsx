@@ -1,32 +1,7 @@
-import { useCountdown } from '../lib/countdown.js'
 import { parts, VB } from '../lib/logo.js'
 
-function Odometer({ value, digits }) {
-  const str = String(value).padStart(digits, '0')
-  return (
-    <span className="cd__num">
-      {[...str].map((ch, i) => (
-        <span className="cd__digit" key={`${str.length}-${i}`}>
-          <span className="cd__col" style={{ transform: `translateY(${-ch * 10}%)` }}>
-            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
-              <span key={n}>{n}</span>
-            ))}
-          </span>
-        </span>
-      ))}
-    </span>
-  )
-}
-
-/** Made in the UAE, with a live countdown to the opening that turns into "Now open" on the day. */
+/** Made in the UAE: the factory, its address and a map link, with the spinning badge. */
 export default function Factory() {
-  const cd = useCountdown()
-  const units = [
-    ['Days', cd.d, cd.d > 99 ? 3 : 2],
-    ['Hours', cd.h, 2],
-    ['Minutes', cd.m, 2],
-    ['Seconds', cd.s, 2],
-  ]
   return (
     <section className="factory" id="made-in-the-uae" aria-labelledby="factory-title">
       <div className="wrap factory__grid">
@@ -49,26 +24,6 @@ export default function Factory() {
               <use href="#i-arrow" />
             </svg>
           </a>
-        </div>
-        <div className="countdown rv">
-          <p className="countdown__label label">{cd.open ? 'Our doors are open' : 'Doors open in'}</p>
-          <p className="sr-only">{cd.open ? 'Our factory opened on 23 October 2026.' : 'Our factory opens on 23 October 2026.'}</p>
-          {cd.open ? (
-            <p className="countdown__open display">Now open</p>
-          ) : (
-            <div className="countdown__units" aria-hidden="true">
-              {units.map(([label, val, digits]) => (
-                <div className="cd" key={label}>
-                  <Odometer value={val} digits={digits} />
-                  <span className="cd__u label">{label}</span>
-                </div>
-              ))}
-            </div>
-          )}
-          <p className="countdown__date" aria-hidden="true">
-            <span className="display">23.10</span>
-            <span className="serif-i">2026</span>
-          </p>
         </div>
         <div className="badge" aria-hidden="true">
           <svg viewBox="0 0 200 200" className="badge__ring">

@@ -36,9 +36,9 @@ npm run dev        # http://localhost:5204
 | 3 | Flavour tapes | website-2 | Two crossing marquee bands; speed follows scroll velocity and direction. |
 | 4 | Our story | website-2 | Words ink in as you scroll; key phrases get a pistachio highlight. |
 | 5 | What we make | website-3 | The four product lines as a menu card; each arrow jumps to its product panel. |
-| 6 | Products | website-1 horizontal scroll + website-2 "Edit" design | Pinned section moved sideways by your own scrolling (screens 1024 px and wider; stacked below that). Panels: Dates, Crunch sticks, Kunafa bar, Truffle (Coconut Truffles), Filling chocolate (more flavours coming soon). Each panel repaints in the selected flavour's colours; flavours rotate on a timer while the panel is on screen (pause/play button; choosing a flavour pauses it). |
+| 6 | Products | website-1 horizontal scroll + website-2 "Edit" design | Pinned section moved sideways by your own scrolling (screens 1024 px and wider; stacked below that). Panels: Dates, Dates 500g (the 500g pouches, each panel painted in its pack's own colour), Crunch sticks, Kunafa bar, Truffle (Coconut Truffles, blue and brown wrappers), Filling chocolate (more flavours coming soon). Each panel repaints in the selected flavour's colours; flavours rotate on a timer while the panel is on screen (pause/play button; choosing a flavour pauses it). |
 | 7 | Our four promises | website-2 (compacted) | Cards dock on top of each other while scrolling and leave together. |
-| 8 | Made in the UAE | website-2 | Live countdown to the opening; switches to "Now open" on 23 Oct 2026 (Dubai time). |
+| 8 | Made in the UAE | website-2 | The factory, its address and a map link, with the spinning badge. |
 | 9 | Leadership | website-2 | CEO section. |
 | 10 | Work with us | website-3 layout | Partnership form on an espresso background with gold lattice and arch. |
 | 11 | Footer | website-2 | Logo, links, contact. |
@@ -84,7 +84,7 @@ website-4/
     │   │   ├── Products.jsx    # horizontal pin / stacked layout, progress rail
     │   │   └── EditPanel.jsx   # "The ___ edit" flavour panel
     │   ├── Promises.jsx
-    │   ├── Factory.jsx         # Made in the UAE + countdown
+    │   ├── Factory.jsx         # Made in the UAE
     │   ├── Leadership.jsx
     │   ├── Partner.jsx         # Work with us + form
     │   ├── Footer.jsx
@@ -92,7 +92,7 @@ website-4/
     ├── lib/
     │   ├── motion.js           # GSAP/Lenis setup, anchor scrolling, reveals
     │   ├── pour.js             # WebGL chocolate pour
-    │   ├── countdown.js        # opening date + countdown hook  <- opening date lives here
+    │   ├── countdown.js        # opening date + countdown hook (used by the hero)  <- opening date lives here
     │   ├── logo.js             # splits the logo into animatable parts
     │   └── arch.js             # the Ajeebas arch shape + lattice pattern
     └── styles/
@@ -125,7 +125,7 @@ website-4/
 | To change | Edit |
 |---|---|
 | Products, flavours, pack images, panel colours | `src/components/products/data.js` (colours per flavour in `src/styles/products.css`, `.edit[data-variant=...]`) |
-| Opening date / countdown | `OPENING` in `src/lib/countdown.js` |
+| Opening date (hero) | `OPENING` in `src/lib/countdown.js` |
 | Navbar links | `NAV` in `src/components/Header.jsx` |
 | Contact email | `MAIL` in `src/components/Partner.jsx`, plus `Header.jsx` and `Footer.jsx` |
 | Section copy | the matching component in `src/components/` |

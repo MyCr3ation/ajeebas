@@ -23,6 +23,31 @@ export const DATES = {
   ],
 }
 
+// The 500g pouches: their own panel after Dates, painted in each pack's own colour (navy, brown, green, red).
+// Claims and script are taken from the 500g packaging.
+const DATES_500G_ALT = (name) => `Ajeebas Premium Dates Chocolate 500g pouch, ${name}`
+export const DATES_500G = {
+  id: 'line-dates-500g',
+  short: '500g',
+  label: 'Dates chocolate 500g',
+  titleItalic: 'The',
+  titleCaps: '500g edit',
+  letters: '500G',
+  script: 'Premium',
+  style: 'Net weight 500g',
+  claims: [
+    ['leaf', 'Natural Goodness'],
+    ['pod', 'Rich Indulgence'],
+    ['heart', 'Finest Ingredients'],
+  ],
+  variants: [
+    { key: 'd5dark', tab: 'Almond Dark', name: 'Almond (Dark)', img: '/images/cut/dates-500g-almond-dark-pouch.webp', w: 894, h: 1271, alt: DATES_500G_ALT('Almond (Dark)'), tone: 'dark', swatch: '#17245e', ings: ['almond', 'chunk', 'almond', 'date', 'chunk', 'almond'] },
+    { key: 'd5milk', tab: 'Almond Milk', name: 'Almond (Milk)', img: '/images/cut/dates-500g-almond-milk-pouch.webp', w: 826, h: 1252, alt: DATES_500G_ALT('Almond (Milk)'), tone: 'dark', swatch: '#532e16', ings: ['chunk', 'almond', 'date', 'almond', 'almond', 'chunk'] },
+    { key: 'd5pist', tab: 'Pistachio', name: 'Pistachio', img: '/images/cut/dates-500g-pistachio-pouch.webp', w: 829, h: 1264, alt: DATES_500G_ALT('Pistachio'), tone: 'dark', swatch: '#454e20', ings: ['pistachio', 'pistachio-shell', 'pistachio', 'date', 'pistachio-shell', 'pistachio'] },
+    { key: 'd5assorted', tab: 'Assorted', name: 'Assorted', img: '/images/cut/dates-500g-assorted-pouch.webp', w: 864, h: 1277, alt: DATES_500G_ALT('Assorted'), tone: 'dark', swatch: '#b10f14', ings: ['coconut', 'pistachio', 'almond', 'date', 'coconut', 'chunk'] },
+  ],
+}
+
 export const CRUNCH = {
   id: 'line-crunch',
   short: 'Crunch sticks',
@@ -61,7 +86,8 @@ export const TRUFFLE = {
   claimsLabel: 'Ingredients',
   foot: 'Made in UAE',
   variants: [
-    { key: 'coconut', tab: 'Coconut Truffles', name: 'Coconut Truffles', img: '/images/cut/coconut-truffle-filled-bar-wrapper.webp', w: 1100, h: 592, wide: true, alt: 'Ajeebas Coconut Truffles wrapper', tone: 'light', swatch: 'var(--white)', ings: ['coconut', 'coconut', 'chunk', 'date', 'coconut', 'chunk'] },
+    { key: 'coconut', tab: 'Blue', name: 'Coconut Truffles', img: '/images/cut/coconut-truffle-blue-wrapper.webp', w: 1230, h: 700, wide: true, alt: 'Ajeebas Coconut Truffles wrapper, blue', tone: 'dark', swatch: '#0a2a6e', ings: ['coconut', 'coconut', 'chunk', 'date', 'coconut', 'chunk'] },
+    { key: 'coconut-brown', tab: 'Brown', name: 'Coconut Truffles', img: '/images/cut/coconut-truffle-brown-wrapper.webp', w: 1230, h: 700, wide: true, alt: 'Ajeebas Coconut Truffles wrapper, brown', tone: 'dark', swatch: '#4a210c', ings: ['coconut', 'chunk', 'coconut', 'date', 'chunk', 'coconut'] },
   ],
 }
 
@@ -121,4 +147,4 @@ export const KUNAFA = {
   ],
 }
 
-export const PANELS = [DATES, CRUNCH, KUNAFA, TRUFFLE, FILLED]
+export const PANELS = [DATES, DATES_500G, CRUNCH, KUNAFA, TRUFFLE, FILLED]

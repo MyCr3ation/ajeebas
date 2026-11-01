@@ -414,7 +414,7 @@
 }
 
 /* =========================================================================
-   MADE IN THE UAE: countdown
+   MADE IN THE UAE
    ========================================================================= */
 .factory {
   position: relative;
@@ -432,7 +432,7 @@
   position: relative;
 }
 .factory__copy {
-  grid-column: 1 / 6;
+  grid-column: 1 / 9;
   display: grid;
   gap: clamp(16px, 2vw, 28px);
   align-content: start;
@@ -453,69 +453,6 @@
   font-weight: 600;
   padding-top: 18px;
   border-top: 1.5px solid var(--cocoa);
-}
-.countdown {
-  grid-column: 7 / 13;
-  align-self: end;
-  display: grid;
-  gap: clamp(14px, 1.6vw, 24px);
-}
-.countdown__units {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  border-top: 2px solid var(--cocoa);
-  border-bottom: 2px solid var(--cocoa);
-}
-.cd {
-  display: grid;
-  gap: 4px;
-  padding: clamp(10px, 1.4vw, 20px) clamp(8px, 1vw, 16px) clamp(10px, 1.2vw, 16px);
-}
-.cd + .cd {
-  border-left: 1px solid rgb(var(--cocoa-rgb) / 0.4);
-}
-.cd__num {
-  display: flex;
-  font-weight: 800;
-  font-stretch: 62%;
-  font-size: clamp(56px, 7.6vw, 150px);
-  line-height: 1;
-  height: 1em;
-  overflow: hidden;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.01em;
-}
-.cd__digit {
-  display: block;
-  height: 1em;
-  overflow: hidden;
-}
-.cd__col {
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.55s var(--ease);
-}
-.cd__col > span {
-  display: block;
-  height: 1em;
-  text-align: center;
-}
-.cd__u {
-  opacity: 0.85;
-}
-.countdown__open {
-  font-size: clamp(80px, 12vw, 220px);
-}
-.countdown__date {
-  display: flex;
-  align-items: baseline;
-  gap: 0.18em;
-  font-size: clamp(64px, 10vw, 190px);
-  line-height: 0.85;
-}
-.countdown__date .serif-i {
-  font-size: 0.82em;
-  color: var(--choc);
 }
 .badge {
   position: absolute;
@@ -1064,8 +1001,7 @@
   .promise__num {
     font-size: clamp(84px, 26vw, 140px);
   }
-  .factory__copy,
-  .countdown {
+  .factory__copy {
     grid-column: 1 / -1;
   }
   .badge {
@@ -1121,18 +1057,6 @@
   }
   .menu-card__go {
     display: none;
-  }
-  .countdown__units {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .cd:nth-child(3) {
-    border-left: 0;
-  }
-  .cd:nth-child(n + 3) {
-    border-top: 1px solid rgb(var(--cocoa-rgb) / 0.4);
-  }
-  .cd__num {
-    font-size: clamp(64px, 22vw, 110px);
   }
   .lead__title {
     white-space: normal;

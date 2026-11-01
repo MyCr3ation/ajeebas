@@ -124,7 +124,14 @@
 .edit[data-variant='cpist'] { --stage-bg: #a8c686; --stage-fg: #2b1a12; --stage-accent: #2b1a12; --stage-letters: #e8efd6; --stage-line: #4f7a3a; }
 .edit[data-variant='calmond'] { --stage-bg: #2b1a12; --stage-fg: #f6eedd; --stage-accent: #b88553; --stage-letters: #4a2c1e; --stage-line: #7a4a2e; }
 .edit[data-variant='kunafa'] { --stage-bg: #f6eedd; --stage-fg: #2b1a12; --stage-accent: #4f7a3a; --stage-letters: #dcc9ae; --stage-line: #b88553; }
-.edit[data-variant='coconut'] { --stage-bg: #fcf9f3; --stage-fg: #2b1a12; --stage-accent: #4f7a3a; --stage-letters: #e8efd6; --stage-line: #dcc9ae; }
+/* coconut truffles: backdrop sampled from the new blue and brown wrappers */
+.edit[data-variant='coconut'] { --stage-bg: #0a2a6e; --stage-fg: #f6eedd; --stage-accent: #dcc9ae; --stage-letters: #1a3c8a; --stage-line: rgb(189 157 40 / 0.55); }
+.edit[data-variant='coconut-brown'] { --stage-bg: #4a210c; --stage-fg: #f6eedd; --stage-accent: #dcc9ae; --stage-letters: #61311a; --stage-line: rgb(189 157 40 / 0.55); }
+/* dates 500g: backdrop sampled from each pack, giant letters a lighter tint of it, gold rules like the pack's lattice */
+.edit[data-variant='d5dark'] { --stage-bg: #17245e; --stage-fg: #f6eedd; --stage-accent: #dcc9ae; --stage-letters: #243681; --stage-line: rgb(189 157 40 / 0.55); }
+.edit[data-variant='d5milk'] { --stage-bg: #532e16; --stage-fg: #f6eedd; --stage-accent: #dcc9ae; --stage-letters: #6c3f22; --stage-line: rgb(189 157 40 / 0.55); }
+.edit[data-variant='d5pist'] { --stage-bg: #454e20; --stage-fg: #f6eedd; --stage-accent: #dcc9ae; --stage-letters: #5a652f; --stage-line: rgb(189 157 40 / 0.55); }
+.edit[data-variant='d5assorted'] { --stage-bg: #b10f14; --stage-fg: #fcf9f3; --stage-accent: #f6eedd; --stage-letters: #c52b2d; --stage-line: rgb(189 157 40 / 0.6); }
 /* filled bars: backdrop colour sampled from each photo; letters are a veil of white over the photo */
 .edit[data-variant='fmango'] { --stage-bg: #f0961b; --stage-fg: #2b1a12; --stage-accent: #2b1a12; --stage-letters: rgb(255 255 255 / 0.5); --stage-line: rgb(43 26 18 / 0.4); }
 .edit[data-variant='fpist'] { --stage-bg: #8a7f38; --stage-fg: #fcf9f3; --stage-accent: #e8efd6; --stage-letters: rgb(255 255 255 / 0.4); --stage-line: rgb(252 249 243 / 0.45); }
