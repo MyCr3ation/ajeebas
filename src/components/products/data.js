@@ -86,8 +86,8 @@ export const TRUFFLE = {
   claimsLabel: 'Ingredients',
   foot: 'Made in UAE',
   variants: [
-    { key: 'coconut', tab: 'Blue', name: 'Coconut Truffles', img: '/images/cut/coconut-truffle-blue-wrapper.webp', w: 1230, h: 700, wide: true, alt: 'Ajeebas Coconut Truffles wrapper, blue', tone: 'dark', swatch: '#0a2a6e', ings: ['coconut', 'coconut', 'chunk', 'date', 'coconut', 'chunk'] },
-    { key: 'coconut-brown', tab: 'Brown', name: 'Coconut Truffles', img: '/images/cut/coconut-truffle-brown-wrapper.webp', w: 1230, h: 700, wide: true, alt: 'Ajeebas Coconut Truffles wrapper, brown', tone: 'dark', swatch: '#4a210c', ings: ['coconut', 'chunk', 'coconut', 'date', 'chunk', 'coconut'] },
+    // one product in two wrappers: blue in front, brown fanned out behind it
+    { key: 'coconut', tab: 'Coconut Truffles', name: 'Coconut Truffles', img: '/images/cut/coconut-truffle-blue-wrapper.webp', w: 1230, h: 700, wide: true, alt: 'Ajeebas Coconut Truffles wrapper, blue', extra: { img: '/images/cut/coconut-truffle-brown-wrapper.webp', w: 1230, h: 700, alt: 'Ajeebas Coconut Truffles wrapper, brown' }, tone: 'light', swatch: 'linear-gradient(90deg, #0a2a6e 50%, #4a210c 50%)', ings: ['coconut', 'coconut', 'chunk', 'date', 'coconut', 'chunk'] },
   ],
 }
 

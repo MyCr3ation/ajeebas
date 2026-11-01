@@ -266,30 +266,6 @@
 .hero__ctas .btn--line:hover {
   color: var(--cocoa);
 }
-.hero__date {
-  display: grid;
-  gap: 2px;
-  margin-top: 2.2rem;
-  padding: 14px 0 0;
-  border-top: 1px solid rgb(var(--gold-rgb) / 0.4);
-  text-decoration: none;
-  max-width: 300px;
-}
-.hero__date-label {
-  color: var(--caramel);
-  font-size: 11px;
-  letter-spacing: 0.3em;
-}
-.hero__date-value {
-  font-size: 1.45rem;
-  font-weight: 650;
-  line-height: 1.2;
-  color: var(--cream);
-}
-.hero__date-count {
-  font-size: 0.95rem;
-  color: var(--sand);
-}
 .hero__scroll {
   position: absolute;
   left: 50%;
@@ -381,15 +357,7 @@
     min-height: 48px;
     padding: 0 22px;
   }
-  .hero__date,
   .hero__scroll {
     display: none;
-  }
-}
-@media (max-width: 899px) and (min-height: 800px) {
-  .hero__date {
-    display: grid;
-    margin: 1.4rem auto 0;
-    justify-items: center;
   }
 }

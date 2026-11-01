@@ -65,9 +65,9 @@ export default function Story() {
           so more people can enjoy it.
         </p>
         <p>
-          That is why Ajeebas Chocolate was born. We are building a factory in Dubai to make chocolate the way we think it should be made, and we open our doors on{' '}
+          That is why Ajeebas Chocolate was born. We built a factory in Dubai to make chocolate the way we think it should be made, and our doors are{' '}
           <span className="nowrap">
-            <span className="hl hl--strong">23 October 2026</span>.
+            <span className="hl hl--strong">now open</span>.
           </span>
         </p>
       </div>

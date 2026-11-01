@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react'
 import { gsap, ScrollTrigger, env } from '../lib/motion.js'
 import { archD, latticeTile, archOutline } from '../lib/arch.js'
 import { ChocolatePour } from '../lib/pour.js'
-import { useCountdown } from '../lib/countdown.js'
 import MeltTitle from './MeltTitle.jsx'
 import { onReady } from './Intro.jsx'
 
@@ -19,7 +18,6 @@ const TITLE = [[['Chocolate,']], [['the '], ['Emirati', true]], [['way.']]]
  */
 export default function Hero() {
   const ref = useRef(null)
-  const cd = useCountdown()
 
   useEffect(() => {
     const hero = ref.current
@@ -297,11 +295,6 @@ export default function Hero() {
                 <span>What we make</span>
               </a>
             </div>
-            <a className="hero__date" href="#made-in-the-uae">
-              <span className="hero__date-label label">Factory opening</span>
-              <span className="hero__date-value">23 October 2026</span>
-              <span className="hero__date-count">{cd.open ? 'Now open' : `${cd.d} day${cd.d === 1 ? '' : 's'} to go`}</span>
-            </a>
           </div>
         </div>
         <p className="hero__scroll" aria-hidden="true">

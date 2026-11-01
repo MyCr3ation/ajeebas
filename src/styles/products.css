@@ -124,9 +124,8 @@
 .edit[data-variant='cpist'] { --stage-bg: #a8c686; --stage-fg: #2b1a12; --stage-accent: #2b1a12; --stage-letters: #e8efd6; --stage-line: #4f7a3a; }
 .edit[data-variant='calmond'] { --stage-bg: #2b1a12; --stage-fg: #f6eedd; --stage-accent: #b88553; --stage-letters: #4a2c1e; --stage-line: #7a4a2e; }
 .edit[data-variant='kunafa'] { --stage-bg: #f6eedd; --stage-fg: #2b1a12; --stage-accent: #4f7a3a; --stage-letters: #dcc9ae; --stage-line: #b88553; }
-/* coconut truffles: backdrop sampled from the new blue and brown wrappers */
-.edit[data-variant='coconut'] { --stage-bg: #0a2a6e; --stage-fg: #f6eedd; --stage-accent: #dcc9ae; --stage-letters: #1a3c8a; --stage-line: rgb(189 157 40 / 0.55); }
-.edit[data-variant='coconut-brown'] { --stage-bg: #4a210c; --stage-fg: #f6eedd; --stage-accent: #dcc9ae; --stage-letters: #61311a; --stage-line: rgb(189 157 40 / 0.55); }
+/* coconut truffles: both wrappers (blue and brown) on cream, so neither disappears into the backdrop */
+.edit[data-variant='coconut'] { --stage-bg: #f6eedd; --stage-fg: #2b1a12; --stage-accent: #4f7a3a; --stage-letters: #e6d9c2; --stage-line: #b88553; }
 /* dates 500g: backdrop sampled from each pack, giant letters a lighter tint of it, gold rules like the pack's lattice */
 .edit[data-variant='d5dark'] { --stage-bg: #17245e; --stage-fg: #f6eedd; --stage-accent: #dcc9ae; --stage-letters: #243681; --stage-line: rgb(189 157 40 / 0.55); }
 .edit[data-variant='d5milk'] { --stage-bg: #532e16; --stage-fg: #f6eedd; --stage-accent: #dcc9ae; --stage-letters: #6c3f22; --stage-line: rgb(189 157 40 / 0.55); }
@@ -316,6 +315,23 @@
   height: auto;
   transform: rotate(9deg);
   filter: drop-shadow(0 24px 30px rgb(var(--espresso-rgb) / 0.4));
+}
+/* two wide packs (coconut truffles): fanned, the main one in front lower left, the extra behind upper right */
+.edit__media.is-wide.has-extra .edit__img {
+  position: relative;
+  z-index: 2;
+  width: min(40vw, 700px, 96vh);
+  height: auto;
+  translate: -9% 14%;
+  transform: rotate(-5deg);
+}
+.edit__media.is-wide.has-extra .edit__extra {
+  z-index: 1;
+  right: -16%;
+  top: -24%;
+  bottom: auto;
+  width: 92%;
+  transform: rotate(7deg);
 }
 .edit__shadow {
   position: absolute;
@@ -657,6 +673,10 @@
   }
   .edit__media.is-wide .edit__img {
     width: 88vw;
+  }
+  .edit__media.is-wide.has-extra .edit__img {
+    width: 68vw;
+    translate: -10% 16%;
   }
   .edit__letters {
     font-size: clamp(90px, 28vw, 190px);
