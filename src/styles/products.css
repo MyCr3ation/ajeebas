@@ -234,6 +234,46 @@
   margin-top: 4px;
   opacity: 0.85;
 }
+/* pack weights: small label over a condensed numeral, split by hairlines */
+.edit__weights {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.edit__weights > div {
+  display: grid;
+  gap: 4px;
+  padding: 2px 22px 2px 0;
+}
+.edit__weights > div + div {
+  padding-left: 22px;
+  border-left: 1px solid var(--stage-line);
+}
+.edit__weights dt {
+  font-size: 11px;
+  opacity: 0.8;
+}
+.edit__weights dd {
+  margin: 0;
+  font-weight: 800;
+  font-stretch: 62%;
+  font-size: clamp(28px, min(2.4vw, 4.4vh), 40px);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+.edit__weights dd i {
+  font-style: normal;
+  color: var(--stage-accent);
+  opacity: 0.7;
+}
+.edit__weights small {
+  margin-left: 0.06em;
+  font-size: 0.55em;
+  font-weight: 700;
+  font-stretch: 80%;
+  text-transform: lowercase;
+}
 
 .edit__stage {
   grid-column: 6 / 13;

@@ -240,6 +240,25 @@ export default function EditPanel({ line, index, active, onTone }) {
                 ))}
               </ul>
             )}
+            {line.weights && !v.soon && (
+              <dl className="edit__weights">
+                {line.weights.map(([label, grams]) => (
+                  <div key={label}>
+                    <dt className="label">{label}</dt>
+                    <dd>
+                      {grams.map((g, i) => (
+                        <span key={g}>
+                          {i > 0 && <i aria-hidden="true"> · </i>}
+                          {i > 0 && <span className="sr-only">, </span>}
+                          {g}
+                        </span>
+                      ))}
+                      <small>g</small>
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            )}
             {line.foot && <p className="edit__foot label">{line.foot}</p>}
           </div>
         </div>

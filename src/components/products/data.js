@@ -1,4 +1,5 @@
 // Product lines for the collection. Copy comes from the packaging and the client's "What we make" lines.
+// `weights`: [label, [grams, ...]] pairs, shown as the weights row under the claims.
 // Colours are brand palette only; each variant repaints its panel.
 
 export const DATES = {
@@ -14,6 +15,10 @@ export const DATES = {
     ['leaf', 'Premium Dates'],
     ['pod', 'Smooth Chocolate'],
     ['heart', 'No Artificial Flavours'],
+  ],
+  weights: [
+    ['Pouch', [250]],
+    ['Per piece', [20]],
   ],
   variants: [
     { key: 'dark', tab: 'Almond Dark', name: 'Almond (Dark)', img: '/images/cut/dates-almond-dark-pouch.webp', w: 896, h: 1341, alt: 'Ajeebas Premium Dates Chocolate pouch, Almond (Dark)', tone: 'dark', swatch: 'var(--choc)', ings: ['almond', 'chunk', 'almond', 'date', 'chunk', 'almond'] },
@@ -34,11 +39,15 @@ export const DATES_500G = {
   titleCaps: '500g edit',
   letters: '500G',
   script: 'Premium',
-  style: 'Net weight 500g',
+  style: 'Premium dates chocolate',
   claims: [
     ['leaf', 'Natural Goodness'],
     ['pod', 'Rich Indulgence'],
     ['heart', 'Finest Ingredients'],
+  ],
+  weights: [
+    ['Pouch', [500]],
+    ['Per piece', [20]],
   ],
   variants: [
     { key: 'd5dark', tab: 'Almond Dark', name: 'Almond (Dark)', img: '/images/cut/dates-500g-almond-dark-pouch.webp', w: 894, h: 1271, alt: DATES_500G_ALT('Almond (Dark)'), tone: 'dark', swatch: '#17245e', ings: ['almond', 'chunk', 'almond', 'date', 'chunk', 'almond'] },
@@ -63,6 +72,10 @@ export const CRUNCH = {
     ['heart', 'Made in UAE'],
   ],
   foot: 'Made in UAE',
+  weights: [
+    ['Pouch', [250]],
+    ['Single', [20]],
+  ],
   variants: [
     { key: 'cpist', tab: 'Pistachio', name: 'Pistachio Chocolate', img: '/images/cut/crunch-stick-pistachio-pouch.webp', w: 684, h: 1041, alt: 'Ajeebas Crunch Stick pouch, Pistachio Chocolate', extra: { img: '/images/cut/crunch-stick-pistachio-wrapper.webp', w: 729, h: 540, alt: 'Ajeebas Crunch Stick single wrapper, Pistachio Chocolate' }, tone: 'light', swatch: 'var(--dpist)', ings: ['pistachio', 'pistachio-shell', 'pistachio', 'chunk', 'pistachio-shell', 'pistachio'] },
     { key: 'calmond', tab: 'Almond', name: 'Almond Chocolate', img: '/images/cut/crunch-stick-almond-pouch.webp', w: 686, h: 1043, alt: 'Ajeebas Crunch Stick pouch, Almond Chocolate', extra: { img: '/images/cut/crunch-stick-almond-wrapper.webp', w: 965, h: 610, alt: 'Ajeebas Crunch Stick single wrapper, Almond Chocolate' }, tone: 'dark', swatch: 'var(--caramel)', ings: ['almond', 'chunk', 'almond', 'almond', 'chunk', 'almond'] },
@@ -85,6 +98,7 @@ export const TRUFFLE = {
   ],
   claimsLabel: 'Ingredients',
   foot: 'Made in UAE',
+  weights: [['Per piece', [18]]],
   variants: [
     // one product in two wrappers: blue in front, brown fanned out behind it
     { key: 'coconut', tab: 'Coconut Truffles', name: 'Coconut Truffles', img: '/images/cut/coconut-truffle-blue-wrapper.webp', w: 1230, h: 700, wide: true, alt: 'Ajeebas Coconut Truffles wrapper, blue', extra: { img: '/images/cut/coconut-truffle-brown-wrapper.webp', w: 1230, h: 700, alt: 'Ajeebas Coconut Truffles wrapper, brown' }, tone: 'light', swatch: 'linear-gradient(90deg, #0a2a6e 50%, #4a210c 50%)', ings: ['coconut', 'coconut', 'chunk', 'date', 'coconut', 'chunk'] },
@@ -116,6 +130,7 @@ export const FILLED = {
   script: 'Filled to the centre',
   style: 'Filled bar',
   claims: [],
+  weights: [['Per bar', [24]]],
   variants: [
     filled('fmango', 'Mango Chili', 'mango-chili', '#e3ae62', 'light'),
     filled('fpist', 'Pistachio', 'pistachio', '#9aa055', 'dark'),
@@ -146,6 +161,7 @@ export const KUNAFA = {
     ['leaf', 'Dubai Style'],
   ],
   foot: 'Made in UAE',
+  weights: [['Bar sizes', [20, 40, 75, 100]]],
   variants: [
     { key: 'kunafa', tab: 'Kunafa Bar', name: 'Kunafa Bar', img: '/images/cut/kunafa-bar-box.webp', w: 608, h: 1323, alt: 'Ajeebas Kunafa Bar box, Dubai Chocolate: a green pistachio-patterned carton', tone: 'light', swatch: 'var(--dpist)', ings: ['pistachio', 'chunk', 'pistachio-shell', 'pistachio', 'chunk', 'pistachio-shell'] },
   ],

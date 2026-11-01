@@ -123,7 +123,7 @@ website-4/
 
 | To change | Edit |
 |---|---|
-| Products, flavours, pack images, panel colours | `src/components/products/data.js` (colours per flavour in `src/styles/products.css`, `.edit[data-variant=...]`) |
+| Products, flavours, pack weights, pack images, panel colours | `src/components/products/data.js` (colours per flavour in `src/styles/products.css`, `.edit[data-variant=...]`) |
 | Navbar links | `NAV` in `src/components/Header.jsx` |
 | Contact email | `MAIL` in `src/components/Partner.jsx`, plus `Header.jsx` and `Footer.jsx` |
 | Section copy | the matching component in `src/components/` |
