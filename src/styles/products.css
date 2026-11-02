@@ -465,13 +465,21 @@
   --scene-size: cover;
   --scene-pos: 80% 50%;
 }
-/* desktop: a soft fade of the photo's own dark brown behind the copy, so the glass's splash never crowds it */
-.products.is-horizontal .edit--kunafa .edit__scene--panel::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  background: linear-gradient(90deg, rgb(37 10 4 / 0.8), rgb(37 10 4 / 0.55) 28%, rgb(37 10 4 / 0) 46%);
+/* desktop: the whole photo, uncropped, at about 70% of the screen height on the right; its edges fade into the
+   panel's matching dark brown so there is no frame, and the glass and box stay clear of the copy and the rail */
+.products.is-horizontal .edit--kunafa .edit__scene--panel {
+  inset: auto;
+  top: 47%;
+  right: var(--gutter);
+  height: min(70vh, calc((100vw - 2 * var(--gutter)) * 0.78 * 941 / 1672));
+  aspect-ratio: 1672 / 941;
+  translate: 0 -50%;
+  --scene-size: 100% 100%;
+  --scene-pos: 50% 50%;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 26%, #000 95%, transparent), linear-gradient(transparent, #000 9%, #000 86%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 26%, #000 95%, transparent), linear-gradient(transparent, #000 9%, #000 86%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
 }
 .products.is-horizontal .edit__scene--panel {
   display: block;
