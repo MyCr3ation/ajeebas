@@ -56,6 +56,8 @@ export default function EditPanel({ line, index, active, onTone }) {
     if (active) setSeen(true)
   }, [active])
   const scenes = line.variants.filter((x) => x.scene)
+  // a front layer (the product alone, over the giant word) only where the scenes come with one
+  const fronts = scenes.length > 0 && scenes.every((x) => x.sceneBar)
 
   // the entrance of the ingredients for whatever flavour is shown
   useEffect(() => {
@@ -303,7 +305,7 @@ export default function EditPanel({ line, index, active, onTone }) {
             </div>
             {!v.scene && <span className="edit__shadow" aria-hidden="true" />}
           </div>
-          {scenes.length > 0 && <Scene scenes={scenes} first={line.variants[0].key} seen={seen} at="stage" bar />}
+          {fronts && <Scene scenes={scenes} first={line.variants[0].key} seen={seen} at="stage" bar />}
         </div>
 
         <div className="edit__controls">
@@ -336,7 +338,7 @@ export default function EditPanel({ line, index, active, onTone }) {
           )}
         </div>
       </div>
-      {scenes.length > 0 && <Scene scenes={scenes} first={line.variants[0].key} seen={seen} at="panel" bar />}
+      {fronts && <Scene scenes={scenes} first={line.variants[0].key} seen={seen} at="panel" bar />}
     </article>
   )
 }

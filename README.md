@@ -138,10 +138,10 @@ update its `w`/`h` in `src/components/products/data.js` (and in `Hero.jsx` for t
 
 ### Kunafa bar
 
-The Kunafa bar is a box, not a pouch, so it has no hang hole. Its source is
-`../brand-assets/images/kunafa-bar-box.png` (supplied as a PNG named `.pdf`); the cut-out is
-`public/images/cut/kunafa-bar-box.webp`, made with `../idea-bank/cut-kunafa-box.py`. The old illustrated
-placeholder and its snap animation are kept in `../brand-assets/legacy/`.
+The Kunafa panel shows the Rooh Afza Kunafa Bar in its campaign photo (box, glass, kunafa and rose petals),
+`public/images/kunafa/rooh-afza-kunafa-scene.webp`, across the whole panel like the filled bars, with the copy
+over its dark left side. It has no giant word or floating ingredients. To change it, replace that image (keep the
+product on the right and the left side dark) and update the `KUNAFA` entry in `src/components/products/data.js`.
 
 ### Contact form
 

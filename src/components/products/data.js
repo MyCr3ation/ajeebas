@@ -163,7 +163,8 @@ export const KUNAFA = {
   foot: 'Made in UAE',
   weights: [['Bar sizes', [20, 40, 75, 100]]],
   variants: [
-    { key: 'kunafa', tab: 'Kunafa Bar', name: 'Kunafa Bar', img: '/images/cut/kunafa-bar-box.webp', w: 608, h: 1323, alt: 'Ajeebas Kunafa Bar box, Dubai Chocolate: a green pistachio-patterned carton', tone: 'light', swatch: 'var(--dpist)', ings: ['pistachio', 'chunk', 'pistachio-shell', 'pistachio', 'chunk', 'pistachio-shell'] },
+    // shown in its campaign photo (box, glass of Rooh Afza, kunafa, rose petals) across the whole panel
+    { key: 'kunafa', tab: 'Rooh Afza Kunafa Bar', name: 'Rooh Afza Kunafa Bar', scene: '/images/kunafa/rooh-afza-kunafa-scene.webp', alt: 'Ajeebas Rooh Afza Kunafa Bar box, 75 g, Dubai Chocolate, beside a glass of Rooh Afza over ice with kunafa pastry and rose petals', tone: 'dark', swatch: '#c8102e', ings: [] },
   ],
 }
 

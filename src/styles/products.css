@@ -123,7 +123,8 @@
 .edit[data-variant='assorted'] { --stage-bg: #b88553; --stage-fg: #2b1a12; --stage-accent: #2b1a12; --stage-letters: #dcc9ae; --stage-line: #7a4a2e; }
 .edit[data-variant='cpist'] { --stage-bg: #a8c686; --stage-fg: #2b1a12; --stage-accent: #2b1a12; --stage-letters: #e8efd6; --stage-line: #4f7a3a; }
 .edit[data-variant='calmond'] { --stage-bg: #2b1a12; --stage-fg: #f6eedd; --stage-accent: #b88553; --stage-letters: #4a2c1e; --stage-line: #7a4a2e; }
-.edit[data-variant='kunafa'] { --stage-bg: #f6eedd; --stage-fg: #2b1a12; --stage-accent: #4f7a3a; --stage-letters: #dcc9ae; --stage-line: #b88553; }
+/* kunafa: the campaign photo fills the panel; the backdrop matches its dark edges */
+.edit[data-variant='kunafa'] { --stage-bg: #250a04; --stage-fg: #f6eedd; --stage-accent: #dcc9ae; --stage-letters: transparent; --stage-line: rgb(246 238 221 / 0.3); }
 /* coconut truffles: both wrappers (blue and brown) on cream, so neither disappears into the backdrop */
 .edit[data-variant='coconut'] { --stage-bg: #f6eedd; --stage-fg: #2b1a12; --stage-accent: #4f7a3a; --stage-letters: #e6d9c2; --stage-line: #b88553; }
 /* dates 500g: backdrop sampled from each pack, giant letters a lighter tint of it, gold rules like the pack's lattice */
@@ -450,9 +451,27 @@
   transform: rotate(180deg);
   font-size: min(11.4vh, 170px, calc((max(8.96vw, 15.93vh) - var(--gutter) - 16px) / 0.76));
 }
-.products.is-horizontal .edit--filled .edit__inner {
+.products.is-horizontal .edit--filled .edit__inner,
+.products.is-horizontal .edit--kunafa .edit__inner {
   position: relative;
   z-index: 2;
+}
+/* kunafa: one photo, no giant word or floating ingredients (the photo has its own); stacked, the stage shows
+   the glass and the box */
+.edit--kunafa .edit__letters {
+  display: none !important;
+}
+.edit--kunafa .edit__scene--stage {
+  --scene-size: cover;
+  --scene-pos: 80% 50%;
+}
+/* desktop: a soft fade of the photo's own dark brown behind the copy, so the glass's splash never crowds it */
+.products.is-horizontal .edit--kunafa .edit__scene--panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: linear-gradient(90deg, rgb(37 10 4 / 0.8), rgb(37 10 4 / 0.55) 28%, rgb(37 10 4 / 0) 46%);
 }
 .products.is-horizontal .edit__scene--panel {
   display: block;
