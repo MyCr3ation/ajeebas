@@ -211,7 +211,7 @@ export default function EditPanel({ line, index, active, onTone }) {
     <article className={`panel edit edit--${line.id.replace('line-', '')}`} id={line.id} ref={ref} data-variant={vc.key} data-tone={vc.tone} aria-labelledby={`${line.id}-title`}>
       {scenes.length > 0 && <Scene scenes={scenes} first={line.variants[0].key} seen={seen} at="panel" />}
       {/* on a photo line the giant word belongs to the panel-wide photo, placed in its clear upper corner */}
-      {scenes.length > 0 && (
+      {fronts && (
         <p className="edit__letters edit__letters--panel" aria-hidden="true">
           {line.letters}
         </p>

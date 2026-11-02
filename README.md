@@ -138,10 +138,11 @@ update its `w`/`h` in `src/components/products/data.js` (and in `Hero.jsx` for t
 
 ### Kunafa bar
 
-The Kunafa panel shows the Rooh Afza Kunafa Bar in its campaign photo (box, glass, kunafa and rose petals),
-`public/images/kunafa/rooh-afza-kunafa-scene.webp`, across the whole panel like the filled bars, with the copy
-over its dark left side. It has no giant word or floating ingredients. To change it, replace that image (keep the
-product on the right and the left side dark) and update the `KUNAFA` entry in `src/components/products/data.js`.
+Two bars. First the **Kunafa Bar** (green box, 100 g), a transparent cut-out at `public/images/cut/kunafa-bar-box.webp`
+shown like the other packs. Second the **Rooh Afza Kunafa Bar** in its campaign photo (box, glass, kunafa, rose
+petals), `public/images/kunafa/rooh-afza-kunafa-scene.webp`, shown whole on the right of the panel with its edges
+fading into the dark backdrop, and without the giant word. Both are entries in `KUNAFA` in
+`src/components/products/data.js`.
 
 ### Contact form
 
