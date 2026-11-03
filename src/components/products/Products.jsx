@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { gsap, ScrollTrigger, env, registerScrollTarget } from '../../lib/motion.js'
 import { PANELS } from './data.js'
 import EditPanel from './EditPanel.jsx'
+import { NEW_UNTIL, isOn } from '../../lib/promo.js'
 
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v))
 
@@ -161,6 +162,7 @@ export default function Products() {
               <a href={`#${line.id}`} aria-current={active === i ? 'true' : 'false'}>
                 <span>{String(i + 1).padStart(2, '0')}</span>
                 {line.short}
+                {line.isNew && isOn(NEW_UNTIL) && <b className="tag-new">New</b>}
               </a>
             </li>
           ))}

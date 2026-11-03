@@ -165,7 +165,7 @@ export const KUNAFA = {
   variants: [
     { key: 'kunafa', tab: 'Kunafa Bar', name: 'Kunafa Bar', img: '/images/cut/kunafa-bar-box.webp', w: 462, h: 959, alt: 'Ajeebas Kunafa Bar box, Dubai Chocolate, net weight 100 g: a green carton showing the bar broken open', tone: 'light', swatch: 'var(--dpist)', ings: ['pistachio', 'chunk', 'pistachio-shell', 'pistachio', 'chunk', 'pistachio-shell'] },
     // shown in its campaign photo (box, glass of Rooh Afza, kunafa, rose petals)
-    { key: 'kunafa-roohafza', tab: 'Rooh Afza Kunafa Bar', name: 'Rooh Afza Kunafa Bar', scene: '/images/kunafa/rooh-afza-kunafa-scene.webp', alt: 'Ajeebas Rooh Afza Kunafa Bar box, 75 g, Dubai Chocolate, beside a glass of Rooh Afza over ice with kunafa pastry and rose petals', tone: 'dark', swatch: '#c8102e', ings: [] },
+    { key: 'kunafa-roohafza', isNew: true, tab: 'Rooh Afza Kunafa Bar', name: 'Rooh Afza Kunafa Bar', scene: '/images/kunafa/rooh-afza-kunafa-scene.webp', alt: 'Ajeebas Rooh Afza Kunafa Bar box, 75 g, Dubai Chocolate, beside a glass of Rooh Afza over ice with kunafa pastry and rose petals', tone: 'dark', swatch: '#c8102e', ings: [] },
   ],
 }
 
@@ -173,6 +173,7 @@ export const KUNAFA = {
 // (the No Added Sugar bar: 0 g added sugar, dark chocolate with almonds, pistachios, walnuts and pumpkin seeds).
 export const HEALTHY = {
   id: 'line-healthy',
+  isNew: true,
   short: 'Healthy',
   label: 'Healthy collection',
   titleItalic: 'The',
@@ -189,7 +190,7 @@ export const HEALTHY = {
   foot: 'Made in UAE',
   weights: [['Bar', [75]]],
   variants: [
-    { key: 'nosugar', tab: 'No Added Sugar', name: 'No Added Sugar', badge: ['0g', 'added sugar'], img: '/images/cut/no-added-sugar-box.webp', w: 617, h: 1304, alt: 'Ajeebas No Added Sugar box, net weight 75 g: dark chocolate with almonds, pistachios, walnuts and pumpkin seeds', tone: 'light', swatch: '#2a1d17', ings: ['almond', 'pistachio', 'pistachio-shell', 'almond', 'chunk', 'pistachio'] },
+    { key: 'nosugar', isNew: true, tab: 'No Added Sugar', name: 'No Added Sugar', badge: ['0g', 'added sugar'], img: '/images/cut/no-added-sugar-box.webp', w: 617, h: 1304, alt: 'Ajeebas No Added Sugar box, net weight 75 g: dark chocolate with almonds, pistachios, walnuts and pumpkin seeds', tone: 'light', swatch: '#2a1d17', ings: ['almond', 'pistachio', 'pistachio-shell', 'almond', 'chunk', 'pistachio'] },
   ],
 }
 

@@ -4,6 +4,7 @@ import { archD, latticeTile, archOutline } from '../lib/arch.js'
 import { ChocolatePour } from '../lib/pour.js'
 import MeltTitle from './MeltTitle.jsx'
 import { onReady } from './Intro.jsx'
+import { ISM, isOn, showProduct } from '../lib/promo.js'
 
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v))
 const smooth = (t) => t * t * (3 - 2 * t)
@@ -295,6 +296,28 @@ export default function Hero() {
                 <span>What we make</span>
               </a>
             </div>
+            {isOn(ISM.until) && (
+              <div className="hero__ism">
+                <p className="hero__ism-label label">
+                  <b>New</b> Taste them at {ISM.name}
+                </p>
+                <div className="hero__ism-packs">
+                  <a href="#line-kunafa" onClick={() => showProduct('line-kunafa', 'kunafa-roohafza')}>
+                    <img src="/images/promo/rooh-afza-thumb.webp" width="150" height="320" alt="" loading="lazy" decoding="async" />
+                    <span>Rooh Afza Kunafa Bar</span>
+                  </a>
+                  <a href="#line-healthy" onClick={() => showProduct('line-healthy', 'nosugar')}>
+                    <img src="/images/promo/no-added-sugar-thumb.webp" width="151" height="320" alt="" loading="lazy" decoding="async" />
+                    <span>No Added Sugar</span>
+                  </a>
+                </div>
+                <p className="hero__ism-where">
+                  {ISM.hall} · Stand {ISM.stand}
+                  <br />
+                  {ISM.dates} · Dubai World Trade Centre
+                </p>
+              </div>
+            )}
           </div>
         </div>
         <p className="hero__scroll" aria-hidden="true">

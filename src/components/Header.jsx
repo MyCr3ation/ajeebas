@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { parts, VB } from '../lib/logo.js'
 import { getLenis } from '../lib/motion.js'
+import { ISM, isOn, showProduct } from '../lib/promo.js'
 
 export const NAV = [
   { id: 'our-story', label: 'Our story' },
@@ -24,8 +25,31 @@ export function BrandMark({ className = '' }) {
  * Fixed navbar. Its tone follows whatever section sits under it ([data-header="dark"|"light"]),
  * it gains a frosted bar once you scroll, and it tucks away while you read downwards.
  */
+// the ISM strip can be closed for the rest of the visit
+const ISM_KEY = 'ajeebas-ism-closed'
+const ismClosed = () => {
+  try {
+    return sessionStorage.getItem(ISM_KEY) === '1'
+  } catch {
+    return false
+  }
+}
+
 export default function Header() {
   const ref = useRef(null)
+  const [ism, setIsm] = useState(() => isOn(ISM.until) && !ismClosed())
+  useEffect(() => {
+    document.documentElement.classList.toggle('has-ism', ism)
+    window.dispatchEvent(new Event('resize')) // the header grew or shrank: let scroll positions re-measure
+  }, [ism])
+  const closeIsm = () => {
+    try {
+      sessionStorage.setItem(ISM_KEY, '1')
+    } catch {
+      /* private mode: it just comes back next visit */
+    }
+    setIsm(false)
+  }
   const [open, setOpen] = useState(false)
   const [current, setCurrent] = useState(null)
   const btnRef = useRef(null)
@@ -113,6 +137,28 @@ export default function Header() {
   return (
     <>
       <header className="nav" ref={ref} data-tone="dark">
+        {ism && (
+          <div className="ism" role="region" aria-label={`Visit us at ${ISM.name}`}>
+            <a className="ism__link" href="#line-kunafa" onClick={() => showProduct('line-kunafa', 'kunafa-roohafza')}>
+              <b className="ism__new">New</b>
+              <span className="ism__long">Rooh Afza Kunafa Bar &amp; No Added Sugar: taste them at {ISM.name}</span>
+              <span className="ism__short">Taste our new bars at ISM</span>
+              <span className="ism__where">
+                {ISM.hall} · Stand {ISM.stand} · {ISM.dates}, {ISM.venue}
+              </span>
+              <span className="ism__where-short">Stand {ISM.stand}</span>
+              <span className="ism__go">
+                See them
+                <svg aria-hidden="true">
+                  <use href="#i-arrow" />
+                </svg>
+              </span>
+            </a>
+            <button className="ism__close" type="button" aria-label="Close the ISM notice" onClick={closeIsm}>
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+        )}
         <a className="brand" href="#top" aria-label="Ajeebas Chocolate, back to the top">
           <BrandMark />
         </a>

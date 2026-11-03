@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { gsap, env } from '../../lib/motion.js'
 import { Icon } from '../Sprite.jsx'
+import { NEW_UNTIL, isOn } from '../../lib/promo.js'
 
 // orbit slots around the pack: left %, top %, size (px at desktop), rotation
 const SLOTS = [
@@ -157,6 +158,17 @@ export default function EditPanel({ line, index, active, onTone }) {
     barTween.current = gsap.fromTo(bar, { scaleX: 0 }, { scaleX: 1, duration: AUTO, ease: 'none', onComplete: () => select((current + 1) % line.variants.length) })
     return () => barTween.current?.kill()
   }, [current, paused, active, select, line.variants.length])
+
+  // promo links ask for a particular flavour ("ajeebas:select" with this line's id and the flavour key)
+  useEffect(() => {
+    const onSelect = (e) => {
+      if (e.detail?.line !== line.id) return
+      const k = line.variants.findIndex((x) => x.key === e.detail.key)
+      if (k >= 0) select(k, { user: true })
+    }
+    window.addEventListener('ajeebas:select', onSelect)
+    return () => window.removeEventListener('ajeebas:select', onSelect)
+  }, [line, select])
 
   // when the tabs are a swipeable strip (long lists on phones), keep the current one in view without moving the page
   useEffect(() => {
@@ -333,6 +345,7 @@ export default function EditPanel({ line, index, active, onTone }) {
                 <span className="ftab__sw" style={{ background: x.swatch }} aria-hidden="true" />
                 <span className="ftab__n">{String(i + 1).padStart(2, '0')}</span>
                 {x.tab}
+                {x.isNew && isOn(NEW_UNTIL) && <b className="tag-new">New</b>}
                 <span className="ftab__bar" aria-hidden="true" />
               </button>
             ))}
