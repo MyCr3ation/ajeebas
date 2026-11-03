@@ -124,6 +124,8 @@
 .edit[data-variant='cpist'] { --stage-bg: #a8c686; --stage-fg: #2b1a12; --stage-accent: #2b1a12; --stage-letters: #e8efd6; --stage-line: #4f7a3a; }
 .edit[data-variant='calmond'] { --stage-bg: #2b1a12; --stage-fg: #f6eedd; --stage-accent: #b88553; --stage-letters: #4a2c1e; --stage-line: #7a4a2e; }
 .edit[data-variant='kunafa'] { --stage-bg: #f6eedd; --stage-fg: #2b1a12; --stage-accent: #4f7a3a; --stage-letters: #dcc9ae; --stage-line: #b88553; }
+/* healthy collection: fresh pistachio cream, deep pistachio accents, the giant word a soft green */
+.edit[data-variant='nosugar'] { --stage-bg: #e8efd6; --stage-fg: #2b1a12; --stage-accent: #4f7a3a; --stage-letters: #d3e0ba; --stage-line: #a8c686; }
 /* rooh afza kunafa: its campaign photo; the backdrop matches the photo's dark edges */
 .edit[data-variant='kunafa-roohafza'] { --stage-bg: #250a04; --stage-fg: #f6eedd; --stage-accent: #dcc9ae; --stage-letters: transparent; --stage-line: rgb(246 238 221 / 0.3); }
 /* coconut truffles: both wrappers (blue and brown) on cream, so neither disappears into the backdrop */
@@ -236,6 +238,47 @@
   margin-top: 4px;
   opacity: 0.85;
 }
+/* healthy collection: what's inside, as a quiet line under the claims */
+.edit__extras {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--stage-accent);
+}
+/* a round stamp beside the pack (healthy: 0g added sugar) */
+.edit__badge {
+  position: absolute;
+  z-index: 3;
+  /* outside the pack, on its left, clear of the logo and the box's own big 0g */
+  right: calc(100% + 18px);
+  top: 30%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  width: clamp(104px, min(9vw, 15vh), 150px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--stage-accent);
+  color: var(--white);
+  box-shadow: 0 0 0 6px rgb(255 255 255 / 0.5), 0 18px 30px -14px rgb(var(--espresso-rgb) / 0.5);
+  transform: rotate(-10deg);
+  text-align: center;
+  line-height: 1;
+}
+.edit__badge b {
+  font-weight: 800;
+  font-stretch: 62%;
+  font-size: 2.6em;
+  letter-spacing: -0.01em;
+}
+.edit__badge span {
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  max-width: 8ch;
+  margin-top: 4px;
+}
 /* pack weights: small label over a condensed numeral, split by hairlines */
 .edit__weights {
   display: flex;
@@ -309,7 +352,8 @@
 .edit--filled .edit__letters {
   font-size: clamp(84px, min(10vw, 14.5vh), 190px);
 }
-.edit--truffle .edit__letters {
+.edit--truffle .edit__letters,
+.edit--healthy .edit__letters {
   font-size: clamp(76px, min(9vw, 13vh), 170px);
 }
 .edit__letters span {
@@ -683,7 +727,8 @@
   .edit--filled .edit__letters {
     font-size: clamp(70px, 12.4vh, 170px);
   }
-  .edit--truffle .edit__letters {
+  .edit--truffle .edit__letters,
+  .edit--healthy .edit__letters {
     font-size: clamp(64px, 11.2vh, 150px);
   }
 }
@@ -751,6 +796,13 @@
     width: 68vw;
     translate: -10% 16%;
   }
+  /* no room beside the pack: the stamp overlaps its lower-left corner, over the picture, not the text */
+  .edit__badge {
+    right: calc(100% - 46px);
+    top: 70%;
+    width: 88px;
+    font-size: 13px;
+  }
   .edit__letters {
     font-size: clamp(90px, 28vw, 190px);
     right: -2%;
@@ -760,7 +812,8 @@
   .edit--filled .edit__letters {
     font-size: clamp(76px, 22vw, 150px);
   }
-  .edit--truffle .edit__letters {
+  .edit--truffle .edit__letters,
+  .edit--healthy .edit__letters {
     font-size: clamp(68px, 19vw, 132px);
   }
   .edit__controls {

@@ -242,6 +242,7 @@ export default function EditPanel({ line, index, active, onTone }) {
                 ))}
               </ul>
             )}
+            {line.extras && <p className="edit__extras">{line.extras.join(' · ')}</p>}
             {line.weights && !v.soon && (
               <dl className="edit__weights">
                 {line.weights.map(([label, grams]) => (
@@ -284,6 +285,12 @@ export default function EditPanel({ line, index, active, onTone }) {
             })}
           </div>
           <div className="edit__pack">
+            {v.badge && (
+              <p className="edit__badge">
+                <b>{v.badge[0]}</b>
+                <span>{v.badge[1]}</span>
+              </p>
+            )}
             <div className={`edit__media${v.wide ? ' is-wide' : ''}${v.extra ? ' has-extra' : ''}`}>
               {v.soon ? (
                 <div className="edit__soon">

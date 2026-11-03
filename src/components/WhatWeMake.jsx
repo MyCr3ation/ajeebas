@@ -8,6 +8,7 @@ export const LINES = [
   { id: 'line-kunafa', name: 'Kunafa bar', text: 'the flavour of a beloved dessert, in a bar you can break and share.' },
   { id: 'line-truffle', name: 'Truffle', text: 'coconut truffles made with dates, milk chocolate and desiccated coconut: a little bite of happiness.' },
   { id: 'line-filled', name: 'Filling chocolate', text: 'bars with a range of fillings, from Mango Chili to Cookies & Cream Crunch.' },
+  { id: 'line-healthy', name: 'Healthy collection', text: 'no-added-sugar dark chocolate with almonds, pistachios, walnuts and pumpkin seeds.' },
 ]
 
 // nuts, dates and crumbs drifting down the gutter between the columns (left %, top %, size px, icon, depth)
@@ -57,7 +58,7 @@ export default function WhatWeMake() {
           <h2 className="range__title fr" id="range-title">
             What we make
           </h2>
-          <p className="range__intro">Five lines, one table. Every pack is made in the UAE.</p>
+          <p className="range__intro">Six lines, one table. Every pack is made in the UAE.</p>
         </div>
         <ol className="menu-card" aria-label="Product lines">
           {LINES.map((l, i) => (

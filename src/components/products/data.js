@@ -169,4 +169,28 @@ export const KUNAFA = {
   ],
 }
 
-export const PANELS = [DATES, DATES_500G, CRUNCH, KUNAFA, TRUFFLE, FILLED]
+// The healthy collection: products for health-conscious customers. Claims are only what the packs say
+// (the No Added Sugar bar: 0 g added sugar, dark chocolate with almonds, pistachios, walnuts and pumpkin seeds).
+export const HEALTHY = {
+  id: 'line-healthy',
+  short: 'Healthy',
+  label: 'Healthy collection',
+  titleItalic: 'The',
+  titleCaps: 'Healthy edit',
+  letters: 'HEALTHY',
+  script: 'with nuts & seeds',
+  style: 'Dark chocolate',
+  claims: [
+    ['heart', 'No added sugar'],
+    ['pod', 'Dark chocolate'],
+    ['leaf', 'Nuts & seeds'],
+  ],
+  extras: ['Almonds', 'Pistachios', 'Walnuts', 'Pumpkin seeds'],
+  foot: 'Made in UAE',
+  weights: [['Bar', [75]]],
+  variants: [
+    { key: 'nosugar', tab: 'No Added Sugar', name: 'No Added Sugar', badge: ['0g', 'added sugar'], img: '/images/cut/no-added-sugar-box.webp', w: 617, h: 1304, alt: 'Ajeebas No Added Sugar box, net weight 75 g: dark chocolate with almonds, pistachios, walnuts and pumpkin seeds', tone: 'light', swatch: '#2a1d17', ings: ['almond', 'pistachio', 'pistachio-shell', 'almond', 'chunk', 'pistachio'] },
+  ],
+}
+
+export const PANELS = [DATES, DATES_500G, CRUNCH, KUNAFA, TRUFFLE, FILLED, HEALTHY]
