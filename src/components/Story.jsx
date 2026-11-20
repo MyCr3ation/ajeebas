@@ -55,7 +55,7 @@ export default function Story() {
           <Icon id="date" className="inl" />, nuts
           <Icon id="almond" className="inl" /> and sweet kunafa have always been part of <span className="nowrap">
             <span className="hl">Emirati hospitality</span>.
-          </span> They are what you put in front of a guest to say welcome. In recent years, that same spirit found a new form in the world's favourite treat, and <span className="nowrap"><span className="hl">"Dubai chocolate"</span></span> became a global craze.
+          </span> They are what you put in front of a guest to say welcome. In recent years, that same spirit has found a new form in the world's favourite treat, and <span className="nowrap"><span className="hl">"Dubai chocolate"</span></span> became a global craze.
         </p>
         <p>
           We saw something we wanted to build on. We love the idea, and we believe it can be made better: <span className="hl">richer in taste, finer in quality, and fairer in </span>

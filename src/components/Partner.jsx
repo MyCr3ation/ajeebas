@@ -177,7 +177,7 @@ export default function Partner() {
           {field('company', 'Company', { auto: 'organization' })}
           {field('email', 'Work email', { type: 'email', auto: 'email' })}
           <fieldset className={`field field--chips${errors.type ? ' has-error' : ''}`}>
-            <legend>I am a</legend>
+            <legend>Type of business</legend>
             <div className="chips">
               {TYPES.map((t) => (
                 <label className="chip" key={t}>
